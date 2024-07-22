@@ -14,8 +14,6 @@ func _physics_process(delta):
 	clamp(currentFuelCapacity,5,MAX_FUEL)
 	
 	speed = MAX_SPEED * (currentFuelCapacity/100)
-	print("capacity:",currentFuelCapacity)
-	print("speed:",speed)
 	velocity = direction * speed
 	rotation = lerp_angle(rotation, velocity.angle(), 0.25)
 
