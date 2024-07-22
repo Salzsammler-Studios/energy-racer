@@ -22,3 +22,6 @@ func short_angle_dist(from, to):
 	var max_angle = PI * 2
 	var difference = fmod(to - from, max_angle)
 	return fmod(2 * difference, max_angle) - difference
+
+func get_reservoir_filling_rate():
+	return acceleration
