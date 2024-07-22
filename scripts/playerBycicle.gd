@@ -8,7 +8,7 @@ func _physics_process(delta):
 		acceleration = 2
 	else:
 		acceleration = 1
-	var direction = Input.get_vector("left", "right", "up", "down")
+	var direction = Input.get_vector("left2", "right2", "up2", "down2")
 	velocity = direction * speed * acceleration
 	rotation = lerp_angle(rotation, velocity.angle(), 0.25)
 
