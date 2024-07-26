@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://c01xwyre1wrhb"]
+[gd_scene load_steps=37 format=3 uid="uid://c01xwyre1wrhb"]
 
 [ext_resource type="Texture2D" uid="uid://dpn32a8wl11w5" path="res://assets/HAS Overworld 2.1/GrassBiome/GB-LandTileset.png" id="1_lhbuj"]
 [ext_resource type="Texture2D" uid="uid://ddq5r1w7cytb0" path="res://assets/HAS Overworld 2.1/DirtBiome/DB-LandTileset.png" id="2_aoj8h"]
@@ -18,7 +18,9 @@
 [ext_resource type="PackedScene" uid="uid://cc7cik7oud4yc" path="res://Scenes/playerCar.tscn" id="16_5riqm"]
 [ext_resource type="PackedScene" uid="uid://6n682f01a30b" path="res://Scenes/playerBycicle.tscn" id="16_45rk0"]
 [ext_resource type="PackedScene" uid="uid://dq5f3vup72hen" path="res://Scenes/reservoir.tscn" id="16_c78ui"]
+[ext_resource type="Texture2D" uid="uid://3vkmoir6a1cj" path="res://assets/UI/Screenshot_6.png" id="19_34bcx"]
 [ext_resource type="Texture2D" uid="uid://diafswajsrhrf" path="res://assets/UI/thermometer.png" id="19_dcj8i"]
+[ext_resource type="Texture2D" uid="uid://slm5c2vsqt68" path="res://assets/UI/Screenshot_5.png" id="20_spq0b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vgxja"]
 texture = ExtResource("1_lhbuj")
@@ -3851,7 +3853,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(1638380, 458752, 8, 1572845, 393216, 8, 1507311, 393216, 8, 1572846, 458752, 8, 1572847, 196608, 9, 1638381, 196608, 9, 1441776, 393216, 9, 1376240, 393216, 8, 1245169, 393216, 8, 1179635, 393216, 8, 983028, 393216, 8, 1310705, 393216, 9, 1245170, 458752, 8, 1376241, 196608, 9, 1245171, 196608, 9, 1507312, 196608, 9, 1179636, 196608, 9, 1114100, 393216, 9, 1048564, 393216, 9, 917493, 393216, 9, 851957, 393216, 9, 983029, 196608, 9, 917484, 327687, 1, 983020, 327687, 2, 1048556, 327687, 3, 917485, 393223, 1, 983021, 393223, 2, 1048557, 393223, 3, 917486, 458759, 1, 983022, 458759, 2, 1048558, 458759, 3, -589804, 65543, 1, -524268, 65543, 2, -458732, 65543, 3, -589803, 131079, 1, -524267, 131079, 2, -458731, 131079, 3, -589802, 196615, 1, -524266, 196615, 2, -458730, 196615, 3, -655396, 65543, 1, -589860, 65543, 2, -524324, 65543, 3, -655395, 131079, 1, -589859, 131079, 2, -524323, 131079, 3, -655394, 196615, 1, -589858, 196615, 2, -524322, 196615, 3, 589830, 589831, 1, 655366, 589831, 2, 720902, 589831, 3, 589831, 655367, 1, 655367, 655367, 2, 720903, 655367, 3, 589832, 720903, 1, 655368, 720903, 2, 720904, 720903, 3, -393214, 327687, 1, -327678, 327687, 2, -262142, 327687, 3, -393213, 393223, 1, -327677, 393223, 2, -262141, 393223, 3, -393212, 458759, 1, -327676, 458759, 2, -262140, 458759, 3, 1114149, 65543, 1, 1179685, 65543, 2, 1245221, 65543, 3, 1114150, 131079, 1, 1179686, 131079, 2, 1245222, 131079, 3, 1114151, 196615, 1, 1179687, 196615, 2, 1245223, 196615, 3, -851925, 589831, 1, -786389, 589831, 2, -720853, 589831, 3, -851924, 655367, 1, -786388, 655367, 2, -720852, 655367, 3, -851923, 720903, 1, -786387, 720903, 2, -720851, 720903, 3)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(41, 39)
+position = Vector2(41, 46)
 zoom = Vector2(0.65, 0.65)
 
 [node name="Reservoir" parent="." instance=ExtResource("16_c78ui")]
@@ -3884,20 +3886,71 @@ position = Vector2(-670, 375)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
-offset_left = 924.0
-offset_top = 3.0
-offset_right = 1190.0
-offset_bottom = 65.0
+[node name="PanelContainer3" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -59.5
+offset_right = 59.5
+offset_bottom = 45.0
+grow_horizontal = 2
+
+[node name="CarUI" type="GridContainer" parent="CanvasLayer/PanelContainer3"]
+layout_mode = 2
 columns = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/GridContainer"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer3/CarUI"]
+layout_mode = 2
+texture = ExtResource("19_34bcx")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer3/CarUI"]
+layout_mode = 2
+text = ": 25"
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -119.0
+offset_bottom = 45.0
+grow_horizontal = 0
+
+[node name="HeatUI" type="GridContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/HeatUI"]
 layout_mode = 2
 texture = ExtResource("19_dcj8i")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="CanvasLayer/GridContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/HeatUI"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
 text = "28°C"
+
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -59.5
+offset_top = -45.0
+offset_right = 59.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="BikeUI" type="GridContainer" parent="CanvasLayer/PanelContainer2"]
+layout_mode = 2
+columns = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer2/BikeUI"]
+layout_mode = 2
+texture = ExtResource("20_spq0b")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer2/BikeUI"]
+layout_mode = 2
+text = ": 25"
