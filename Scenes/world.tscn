@@ -3881,14 +3881,23 @@ position = Vector2(-661, 143)
 [node name="PlayerBycicle" parent="." instance=ExtResource("16_45rk0")]
 position = Vector2(-670, 375)
 
-[node name="Thermometer" type="Sprite2D" parent="."]
-position = Vector2(557, -415)
-scale = Vector2(0.115, 0.115)
-texture = ExtResource("19_dcj8i")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
 
-[node name="Label" type="Label" parent="."]
-offset_left = 614.0
-offset_top = -440.0
-offset_right = 821.0
-offset_bottom = -390.0
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
+offset_left = 924.0
+offset_top = 3.0
+offset_right = 1190.0
+offset_bottom = 65.0
+columns = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("19_dcj8i")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "28°C"
