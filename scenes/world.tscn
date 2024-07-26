@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c01xwyre1wrhb"]
+[gd_scene load_steps=35 format=3 uid="uid://c01xwyre1wrhb"]
 
 [ext_resource type="Texture2D" uid="uid://dpn32a8wl11w5" path="res://assets/HAS Overworld 2.1/GrassBiome/GB-LandTileset.png" id="1_lhbuj"]
 [ext_resource type="Texture2D" uid="uid://ddq5r1w7cytb0" path="res://assets/HAS Overworld 2.1/DirtBiome/DB-LandTileset.png" id="2_aoj8h"]
@@ -15,9 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://bdqg3njdeu5w4" path="res://assets/HAS Overworld 2.1/Universal/Universal-Fields.png" id="13_nqxdb"]
 [ext_resource type="Texture2D" uid="uid://bwmq7we6ut8mb" path="res://assets/HAS Overworld 2.1/Universal/Universal-FogOfWar.png" id="14_6q6cn"]
 [ext_resource type="Texture2D" uid="uid://cx7tre8qyl060" path="res://assets/PixelWorldMap.jpg" id="15_cndhi"]
-[ext_resource type="PackedScene" uid="uid://cc7cik7oud4yc" path="res://scenes/playerCar.tscn" id="16_5riqm"]
-[ext_resource type="PackedScene" uid="uid://6n682f01a30b" path="res://scenes/playerBycicle.tscn" id="16_45rk0"]
-[ext_resource type="PackedScene" uid="uid://dq5f3vup72hen" path="res://scenes/reservoir.tscn" id="16_c78ui"]
+[ext_resource type="PackedScene" uid="uid://cc7cik7oud4yc" path="res://Scenes/playerCar.tscn" id="16_5riqm"]
+[ext_resource type="PackedScene" uid="uid://6n682f01a30b" path="res://Scenes/playerBycicle.tscn" id="16_45rk0"]
+[ext_resource type="PackedScene" uid="uid://dq5f3vup72hen" path="res://Scenes/reservoir.tscn" id="16_c78ui"]
+[ext_resource type="Texture2D" uid="uid://diafswajsrhrf" path="res://assets/UI/thermometer.png" id="19_dcj8i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vgxja"]
 texture = ExtResource("1_lhbuj")
@@ -3879,3 +3880,15 @@ position = Vector2(-661, 143)
 
 [node name="PlayerBycicle" parent="." instance=ExtResource("16_45rk0")]
 position = Vector2(-670, 375)
+
+[node name="Thermometer" type="Sprite2D" parent="."]
+position = Vector2(557, -415)
+scale = Vector2(0.115, 0.115)
+texture = ExtResource("19_dcj8i")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 614.0
+offset_top = -440.0
+offset_right = 821.0
+offset_bottom = -390.0
+text = "28°C"
