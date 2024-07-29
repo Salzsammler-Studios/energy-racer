@@ -20,7 +20,7 @@ func _ready():
 func _process(delta):
 	if isFilling:
 		currentCapacity += capacityVelocity
-		clamp(-100, currentCapacity, 100)
+		clamp(currentCapacity,-100, 100)
 		#update progress bar depending on the current value
 		var sb = StyleBoxFlat.new()
 		progressBar.add_theme_stylebox_override(\"fill\", sb)
@@ -31,7 +31,7 @@ func _process(delta):
 func _on_body_entered(body):
 	if body.name == \"PlayerCar\" or body.name == \"PlayerBycicle\":
 		isFilling = !isFilling
-		capacityVelocity = 1 if body.name == \"PlayerBycicle\" else -1
+		capacityVelocity = body.get_reservoir_filling_rate()
 
 func _on_body_exited(body):
 	if body.name == \"PlayerCar\" or body.name == \"PlayerBycicle\":
