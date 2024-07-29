@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://7swkx11biivn"]
+
+[ext_resource type="Script" path="res://scripts/gasStation.gd" id="1_7oyd8"]
+[ext_resource type="Texture2D" uid="uid://db4ojrs781v36" path="res://assets/reservoir/temple.png" id="2_a38ok"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hpyfl"]
+size = Vector2(70, 44)
+
+[node name="gasStation" type="Area2D"]
+script = ExtResource("1_7oyd8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_a38ok")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_hpyfl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

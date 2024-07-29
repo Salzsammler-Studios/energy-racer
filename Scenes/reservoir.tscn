@@ -39,7 +39,7 @@ func _on_body_exited(body):
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qkrrx"]
-size = Vector2(63, 56)
+size = Vector2(126, 95)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bp83r"]
 bg_color = Color(0, 0, 0, 1)
@@ -55,7 +55,7 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_tgpbg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0)
+position = Vector2(1, 4.5)
 shape = SubResource("RectangleShape2D_qkrrx")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
