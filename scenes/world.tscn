@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c01xwyre1wrhb"]
+[gd_scene load_steps=35 format=3 uid="uid://c01xwyre1wrhb"]
 
 [ext_resource type="Texture2D" uid="uid://dpn32a8wl11w5" path="res://assets/HAS Overworld 2.1/GrassBiome/GB-LandTileset.png" id="1_lhbuj"]
 [ext_resource type="Texture2D" uid="uid://ddq5r1w7cytb0" path="res://assets/HAS Overworld 2.1/DirtBiome/DB-LandTileset.png" id="2_aoj8h"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cc7cik7oud4yc" path="res://Scenes/playerCar.tscn" id="16_5riqm"]
 [ext_resource type="PackedScene" uid="uid://6n682f01a30b" path="res://Scenes/playerBycicle.tscn" id="16_45rk0"]
 [ext_resource type="PackedScene" uid="uid://dq5f3vup72hen" path="res://Scenes/reservoir.tscn" id="16_c78ui"]
+[ext_resource type="PackedScene" uid="uid://7swkx11biivn" path="res://Scenes/gasStation.tscn" id="19_6ljgu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vgxja"]
 texture = ExtResource("1_lhbuj")
@@ -3871,11 +3872,14 @@ position = Vector2(342, -119)
 [node name="Reservoir6" parent="." instance=ExtResource("16_c78ui")]
 position = Vector2(710, -184)
 
-[node name="Reservoir7" parent="." instance=ExtResource("16_c78ui")]
-position = Vector2(619, 293)
-
 [node name="PlayerCar" parent="." instance=ExtResource("16_5riqm")]
 position = Vector2(-661, 143)
 
 [node name="PlayerBycicle" parent="." instance=ExtResource("16_45rk0")]
 position = Vector2(-670, 375)
+
+[node name="gasStation" parent="." instance=ExtResource("19_6ljgu")]
+position = Vector2(-174, -295)
+
+[node name="gasStation2" parent="." instance=ExtResource("19_6ljgu")]
+position = Vector2(637, 298)

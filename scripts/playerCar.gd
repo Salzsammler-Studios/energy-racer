@@ -3,7 +3,7 @@ extends CharacterBody2D
 const MAX_SPEED = 400
 var speed : int = 400  # speed in pixels/sec
 const MAX_FUEL = 100
-var currentFuelCapacity = 100
+@export var currentFuelCapacity = 100
 var fuelDepletionRate = 1 # fuel depletion in sec
 
 
@@ -30,3 +30,7 @@ func short_angle_dist(from, to):
 
 func get_reservoir_filling_rate():
 	return currentFuelCapacity / MAX_FUEL * -1
+
+func fill_gas_tank(amount: float):
+	currentFuelCapacity += amount
+	print(currentFuelCapacity)
