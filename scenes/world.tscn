@@ -15,10 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://bdqg3njdeu5w4" path="res://assets/HAS Overworld 2.1/Universal/Universal-Fields.png" id="13_nqxdb"]
 [ext_resource type="Texture2D" uid="uid://bwmq7we6ut8mb" path="res://assets/HAS Overworld 2.1/Universal/Universal-FogOfWar.png" id="14_6q6cn"]
 [ext_resource type="Texture2D" uid="uid://cx7tre8qyl060" path="res://assets/PixelWorldMap.jpg" id="15_cndhi"]
-[ext_resource type="PackedScene" uid="uid://cc7cik7oud4yc" path="res://hilfe/playerCar.tscn" id="16_5riqm"]
-[ext_resource type="PackedScene" uid="uid://6n682f01a30b" path="res://hilfe/playerBycicle.tscn" id="16_45rk0"]
-[ext_resource type="PackedScene" uid="uid://dq5f3vup72hen" path="res://hilfe/reservoir.tscn" id="16_c78ui"]
-[ext_resource type="PackedScene" uid="uid://7swkx11biivn" path="res://hilfe/gasStation.tscn" id="19_6ljgu"]
+[ext_resource type="PackedScene" uid="uid://cc7cik7oud4yc" path="res://scenes/playerCar.tscn" id="16_5riqm"]
+[ext_resource type="PackedScene" uid="uid://6n682f01a30b" path="res://scenes/playerBycicle.tscn" id="16_45rk0"]
+[ext_resource type="PackedScene" uid="uid://dq5f3vup72hen" path="res://scenes/reservoir.tscn" id="16_c78ui"]
+[ext_resource type="PackedScene" uid="uid://7swkx11biivn" path="res://scenes/gasStation.tscn" id="19_6ljgu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vgxja"]
 texture = ExtResource("1_lhbuj")
