@@ -6,11 +6,16 @@ public partial class arduinoTest : Node2D
 {
 	SerialPort serialPort;
 	Label text;
+	Label temperatureText;
+	bool handOnPlate = false;
+	double timer = 3;
+	float temperatureCounter = 0f;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		text = GetNode<Label>("Label");
+		temperatureText = GetNode<Label>("Label2");
 		if(serialPort != null)
 		{
 			if (serialPort.IsOpen)
@@ -33,11 +38,29 @@ public partial class arduinoTest : Node2D
 		
 		string serialMessage = serialPort.ReadExisting();
 		if(serialMessage.Length >= 4){
-			text.Text = "Now we're cooking with Arduino";
+			text.Text = "Hand ist drauf";
+			handOnPlate = true;
 		}
 		else
 		{
-			text.Text = "Hand is weg";
+			handOnPlate = false;
+		}
+
+		if (handOnPlate){
+			timer -= delta;
+			if (timer <= 0){			
+				temperatureText.Text = "Temperature rises " + temperatureCounter;
+				serialPort.Write("1");
+				temperatureCounter += 1;
+				handOnPlate = false;
+				timer = 3;
+			}
+		}
+		else
+		{
+			text.Text = "You lose!";
+			serialPort.Write("0");
+			temperatureCounter = 0;
 		}
 	}
 }
