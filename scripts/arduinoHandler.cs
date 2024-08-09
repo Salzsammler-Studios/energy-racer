@@ -10,8 +10,6 @@ public partial class arduinoHandler : Node
 	private double timer;
 	private double timerReset = 3;
 	
-	private float temperatureCounter = 0f;
-	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -49,7 +47,6 @@ public partial class arduinoHandler : Node
 			timer -= delta;
 			if (timer <= 0){			
 				serialPort.Write("1");
-				temperatureCounter += 1;
 				handOnPlate = false;
 				timer = timerReset;
 			}
@@ -57,10 +54,11 @@ public partial class arduinoHandler : Node
 		else if (!handOnPlate)
 		{
 			serialPort.Write("0");
-			temperatureCounter = 0;
+			var gManager = GetNode<Node>("/root/GameStateManager");
+			gManager.Call("win_screen", 0, 1);
 		}
 	}
-
+	
 	public void SetRefuelling(bool isRefuelling)
 	{
 		//GD.Print("SetRefuelling is called with " , isRefuelling);
