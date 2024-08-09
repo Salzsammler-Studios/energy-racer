@@ -1,7 +1,7 @@
 extends Area2D
 
 var MAX_CAPACITY: int       = 100
-var currentCapacity: int    = 0
+var currentCapacity: float  = 0
 var capacityVelocity: float = 1
 var isFilling: bool         = false
 
@@ -14,8 +14,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if isFilling:
-		currentCapacity += capacityVelocity
-		clamp(currentCapacity,-100, 100)
+		if currentCapacity <= MAX_CAPACITY or currentCapacity >=-MAX_CAPACITY:
+			currentCapacity += capacityVelocity
 		#update progress bar depending on the current value
 		var sb = StyleBoxFlat.new()
 		progressBar.add_theme_stylebox_override("fill", sb)

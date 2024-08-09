@@ -29,7 +29,7 @@ func lerp_angle(from, to, weight):
 	return from + short_angle_dist(from, to) * weight
 
 func get_reservoir_filling_rate():
-	return maxf(currentFuelCapacity / MAX_FUEL * -1,0.1)
+	return minf((currentFuelCapacity / MAX_FUEL * -1),-0.1)
 
 func fill_gas_tank(amount: float):
 	currentFuelCapacity += amount
