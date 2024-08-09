@@ -35,11 +35,6 @@ func _process(delta):
 		progressBar.add_theme_stylebox_override("fill", sb)
 		sb.bg_color = Color("ff4a8a") if currentCapacity < 0 else Color("76a590")
 		progressBar.value = abs(currentCapacity)
-		if currentCapacity == 100:
-			currentFillingBody.addPoint(2) #Bike
-			
-		if currentCapacity == -100:
-			currentFillingBody.addPoint(1) #Car
 
 
 func _on_body_entered(body):
