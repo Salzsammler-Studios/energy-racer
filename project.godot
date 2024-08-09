@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 project/assembly_name="Energy-racer"
 
+[gui]
+
+theme/custom="res://assets/UI/UITheme.tres"
+
 [input]
 
 up={
