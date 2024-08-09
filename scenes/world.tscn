@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://c01xwyre1wrhb"]
+[gd_scene load_steps=36 format=3 uid="uid://c01xwyre1wrhb"]
 
 [ext_resource type="Texture2D" uid="uid://dpn32a8wl11w5" path="res://assets/HAS Overworld 2.1/GrassBiome/GB-LandTileset.png" id="1_lhbuj"]
 [ext_resource type="Texture2D" uid="uid://ddq5r1w7cytb0" path="res://assets/HAS Overworld 2.1/DirtBiome/DB-LandTileset.png" id="2_aoj8h"]
@@ -15,12 +15,11 @@
 [ext_resource type="Texture2D" uid="uid://bdqg3njdeu5w4" path="res://assets/HAS Overworld 2.1/Universal/Universal-Fields.png" id="13_nqxdb"]
 [ext_resource type="Texture2D" uid="uid://bwmq7we6ut8mb" path="res://assets/HAS Overworld 2.1/Universal/Universal-FogOfWar.png" id="14_6q6cn"]
 [ext_resource type="Texture2D" uid="uid://cx7tre8qyl060" path="res://assets/PixelWorldMap.jpg" id="15_cndhi"]
-[ext_resource type="PackedScene" uid="uid://cc7cik7oud4yc" path="res://Scenes/playerCar.tscn" id="16_5riqm"]
-[ext_resource type="PackedScene" uid="uid://6n682f01a30b" path="res://Scenes/playerBycicle.tscn" id="16_45rk0"]
-[ext_resource type="PackedScene" uid="uid://dq5f3vup72hen" path="res://Scenes/reservoir.tscn" id="16_c78ui"]
-[ext_resource type="PackedScene" path="res://Scenes/gasStation.tscn" id="19_6ljgu"]
-[ext_resource type="PackedScene" uid="uid://o8x6t3inkoeg" path="res://Scenes/UI/gameUI.tscn" id="20_204xt"]
-[ext_resource type="PackedScene" uid="uid://d1ccjxw425l3h" path="res://Scenes/UI/winScreenUI.tscn" id="21_emocr"]
+[ext_resource type="PackedScene" uid="uid://cc7cik7oud4yc" path="res://scenes/playerCar.tscn" id="16_5riqm"]
+[ext_resource type="PackedScene" uid="uid://6n682f01a30b" path="res://scenes/playerBycicle.tscn" id="16_45rk0"]
+[ext_resource type="PackedScene" uid="uid://dq5f3vup72hen" path="res://scenes/reservoir.tscn" id="16_c78ui"]
+[ext_resource type="PackedScene" uid="uid://7swkx11biivn" path="res://scenes/gasStation.tscn" id="19_6ljgu"]
+[ext_resource type="PackedScene" uid="uid://o8x6t3inkoeg" path="res://scenes/UI/gameUI.tscn" id="20_204xt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vgxja"]
 texture = ExtResource("1_lhbuj")
@@ -3887,5 +3886,3 @@ position = Vector2(-174, -295)
 position = Vector2(637, 298)
 
 [node name="UIScreen" parent="." instance=ExtResource("20_204xt")]
-
-[node name="WinScreen" parent="." instance=ExtResource("21_emocr")]

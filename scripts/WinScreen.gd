@@ -4,7 +4,6 @@ var WinScreenPanel
 
 func _ready():
 	WinScreenPanel = $PanelContainer
-	WinScreenPanel.visible = false
 
 func check_for_win():
 	# Replace this condition with the actual win condition.

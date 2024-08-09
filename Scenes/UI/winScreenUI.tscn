@@ -1,11 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1ccjxw425l3h"]
+[gd_scene load_steps=2 format=3 uid="uid://d1ccjxw425l3h"]
 
-[ext_resource type="Script" path="res://scripts/WinScreen.gd" id="1_6dt2u"]
 [ext_resource type="Theme" uid="uid://c1l4dbc35ej4v" path="res://assets/UI/UITheme.tres" id="2_qrup8"]
 
 [node name="WinScreen" type="CanvasLayer"]
-visible = false
-script = ExtResource("1_6dt2u")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 anchors_preset = 8
