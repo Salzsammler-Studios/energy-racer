@@ -6,6 +6,7 @@ var speed : int     = 400  # speed in pixels/sec
 const MAX_FUEL: int = 100
 @export var currentFuelCapacity: float = 100
 var fuelDepletionRate : float          = 1 # fuel depletion in sec
+var carScore: int = 0
 
 
 func _physics_process(delta):
@@ -34,3 +35,7 @@ func get_reservoir_filling_rate():
 func fill_gas_tank(amount: float):
 	currentFuelCapacity += amount
 	print(currentFuelCapacity)
+
+func add_point(numberOfPoints):
+	carScore += numberOfPoints
+	print("carScore = ", carScore)
