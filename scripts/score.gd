@@ -3,11 +3,12 @@ extends Node
 var bikeScore: int = 0
 var carScore: int = 0
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+var BIKE_RESERVOIR_FILL_SCORE = 2
+var CAR_RESERVOIR_FILL_SCORE = 1
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func add_bike_score():
+	bikeScore += BIKE_RESERVOIR_FILL_SCORE
+	print(bikeScore)
+	
+func add_car_score():
+	carScore += CAR_RESERVOIR_FILL_SCORE
