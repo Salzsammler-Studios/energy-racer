@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cc7cik7oud4yc"]
+[gd_scene load_steps=5 format=3 uid="uid://cc7cik7oud4yc"]
 
 [ext_resource type="Texture2D" uid="uid://cggprj71sbbei" path="res://assets/car/car_red_1.png" id="1_wmyn0"]
 [ext_resource type="Script" path="res://scripts/playerCar.gd" id="1_ys652"]
+[ext_resource type="Script" path="res://scripts/arduinoHandler.cs" id="3_mdmlw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_478xr"]
 radius = 30.0
@@ -18,3 +19,6 @@ texture = ExtResource("1_wmyn0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_478xr")
+
+[node name="ArduinoHandler" type="Node" parent="."]
+script = ExtResource("3_mdmlw")
