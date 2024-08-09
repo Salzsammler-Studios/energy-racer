@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://0risxv4jcdps"]
+[gd_scene load_steps=4 format=3 uid="uid://cgu0ujgtfca2b"]
 
 [ext_resource type="Script" path="res://scripts/mainMenu.gd" id="1_a8njr"]
-[ext_resource type="Texture2D" uid="uid://sx3plwfvio4h" path="res://assets/UI/mainMenuBackgroundImage.jpg" id="2_gclkx"]
-[ext_resource type="AudioStream" uid="uid://d10p0bai2sih5" path="res://assets/startupMusic.mp3" id="3_wb07g"]
+[ext_resource type="Texture2D" path="res://assets/UI/mainMenuBackgroundImage.jpg" id="2_gclkx"]
+[ext_resource type="AudioStream" path="res://assets/startupMusic.mp3" id="3_wb07g"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_a8njr")
