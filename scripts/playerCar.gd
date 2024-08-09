@@ -4,15 +4,16 @@ const MAX_SPEED: int = 400
 const MIN_SPEED: int = 10
 var speed : int     = 400  # speed in pixels/sec
 const MAX_FUEL: int = 100
-@export var currentFuelCapacity: float = 100
+var currentFuelCapacity: float = 100
 var fuelDepletionRate : float          = 1 # fuel depletion in sec
+var carScore: int = 0
 
 
 func _physics_process(delta):
 	var direction: Vector2 = Input.get_vector("left", "right", "up", "down")
 	# process oil usage
 	currentFuelCapacity = currentFuelCapacity - (fuelDepletionRate * delta)
-	clamp(currentFuelCapacity,5,MAX_FUEL)
+	currentFuelCapacity = maxf(5,MAX_FUEL)
 	
 	speed = maxf(MAX_SPEED * (currentFuelCapacity/100),MIN_SPEED)
 	velocity = direction * speed
@@ -33,4 +34,3 @@ func get_reservoir_filling_rate():
 
 func fill_gas_tank(amount: float):
 	currentFuelCapacity += amount
-	print(currentFuelCapacity)
