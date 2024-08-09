@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1ccjxw425l3h"]
+[gd_scene load_steps=3 format=3 uid="uid://d1ccjxw425l3h"]
 
+[ext_resource type="Script" path="res://scripts/WinScreen.gd" id="1_ovesi"]
 [ext_resource type="Theme" uid="uid://c1l4dbc35ej4v" path="res://assets/UI/UITheme.tres" id="2_qrup8"]
 
 [node name="WinScreen" type="CanvasLayer"]
+script = ExtResource("1_ovesi")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 anchors_preset = 8
@@ -27,7 +29,6 @@ size_flags_vertical = 4
 
 [node name="Label" type="Label" parent="PanelContainer/GridContainer"]
 layout_mode = 2
-text = "X/Y HAT GEWONNEN!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
