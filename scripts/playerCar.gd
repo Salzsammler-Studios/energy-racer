@@ -6,8 +6,15 @@ var speed : int     = 400  # speed in pixels/sec
 const MAX_FUEL: int = 100
 @export var currentFuelCapacity: float = 100
 var fuelDepletionRate : float          = 1 # fuel depletion in sec
+var isFilling : bool = false
+
+@onready var arduino_handler = $ArduinoHandler
 
 
+func _process(delta):
+	arduino_handler.SetRefuelling(isFilling)
+		
+		
 func _physics_process(delta):
 	var direction: Vector2 = Input.get_vector("left", "right", "up", "down")
 	# process oil usage

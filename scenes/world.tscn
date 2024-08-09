@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cc7cik7oud4yc" path="res://Scenes/playerCar.tscn" id="16_5riqm"]
 [ext_resource type="PackedScene" uid="uid://6n682f01a30b" path="res://Scenes/playerBycicle.tscn" id="16_45rk0"]
 [ext_resource type="PackedScene" uid="uid://dq5f3vup72hen" path="res://Scenes/reservoir.tscn" id="16_c78ui"]
-[ext_resource type="PackedScene" path="res://Scenes/gasStation.tscn" id="19_6ljgu"]
+[ext_resource type="PackedScene" uid="uid://7swkx11biivn" path="res://Scenes/gasStation.tscn" id="19_6ljgu"]
 [ext_resource type="PackedScene" uid="uid://o8x6t3inkoeg" path="res://Scenes/UI/gameUI.tscn" id="20_204xt"]
 [ext_resource type="PackedScene" uid="uid://d1ccjxw425l3h" path="res://Scenes/UI/winScreenUI.tscn" id="21_emocr"]
 
