@@ -6,9 +6,6 @@ var capacityVelocity: float = 0
 var isFilling: bool         = false
 var isFull: bool            = true
 
-var BIKE_RESERVOIR_FILL_SCORE = 2
-var CAR_RESERVOIR_FILL_SCORE = 1
-
 @onready var progressBar = $ProgressBar
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,6 +15,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if isFilling:
+		var bodies = get_overlapping_bodies()
+		if len(bodies) == 1:
+			if bodies[0].name == "PlayerCar" or bodies[0].name == "PlayerBycicle":
+				capacityVelocity = bodies[0].get_reservoir_filling_rate()
+			
 		currentCapacity += capacityVelocity
 		clampf(currentCapacity, -MAX_CAPACITY, MAX_CAPACITY)
 		if currentCapacity < MAX_CAPACITY and currentCapacity > -MAX_CAPACITY:
@@ -39,8 +41,6 @@ func _process(delta):
 func _on_body_entered(body):
 	if body.name == "PlayerCar" or body.name == "PlayerBycicle":
 		isFilling = !isFilling
-		if isFilling:
-			capacityVelocity = body.get_reservoir_filling_rate()
 
 func _on_body_exited(body):
 	if body.name == "PlayerCar" or body.name == "PlayerBycicle":
