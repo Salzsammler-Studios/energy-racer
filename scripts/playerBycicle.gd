@@ -1,8 +1,7 @@
 extends CharacterBody2D
 
-var speed : int         = 400  # speed in pixels/sec
+@export var speed : int         = 400  # speed in pixels/sec
 var acceleration: float = 1.1 # velocity based on the cycling speed
-var bikeScore : int		= 0 #Number of points gained
 
 func _physics_process(delta):
 	if Input.is_action_pressed("accellerate"):
@@ -26,7 +25,3 @@ func lerp_angle(from, to, weight):
 
 func get_reservoir_filling_rate():
 	return acceleration
-
-func add_point(numberOfPoints):
-	bikeScore += numberOfPoints
-	print("bikeScore = ", bikeScore)
