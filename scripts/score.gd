@@ -14,10 +14,12 @@ func add_bike_score():
 	bikeScore += BIKE_RESERVOIR_FILL_SCORE
 	print(bikeScore)
 	if bikeScore >= VICTORY_SCORE:
-		get_tree().change_scene_to_packed(game_over_scene)
+		GameStateManager.win_screen(GameStateManager.possibleVictoryReasons.points, GameStateManager.possibleVictors.bycicle)
+	
+		
 	
 func add_car_score():
 	carScore += CAR_RESERVOIR_FILL_SCORE
 	if carScore >= VICTORY_SCORE:
-		get_tree().change_scene_to_packed(game_over_scene)
+		GameStateManager.win_screen(GameStateManager.possibleVictoryReasons.points, GameStateManager.possibleVictors.car)
 
