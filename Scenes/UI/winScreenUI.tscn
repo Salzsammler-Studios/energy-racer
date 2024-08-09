@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1ccjxw425l3h"]
+
+[ext_resource type="Script" path="res://scenes/WinScreen.gd" id="1_6dt2u"]
+[ext_resource type="Theme" path="res://assets/UI/UITheme.tres" id="2_qrup8"]
+
+[node name="WinScreen" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_6dt2u")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -243.0
+offset_top = -110.5
+offset_right = 243.0
+offset_bottom = 110.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_qrup8")
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="PanelContainer/GridContainer"]
+layout_mode = 2
+text = "X/Y HAT GEWONNEN!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResetButton" type="Button" parent="PanelContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Neues Spiel"
