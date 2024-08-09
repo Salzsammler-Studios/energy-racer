@@ -1,6 +1,6 @@
 extends Area2D
 
-var MAX_CAPACITY: int       = 100
+@export var MAX_CAPACITY: int       = 100
 var currentCapacity: int    = 0
 var capacityVelocity: float = 0
 var isFilling: bool         = false
