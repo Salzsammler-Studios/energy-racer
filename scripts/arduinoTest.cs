@@ -10,6 +10,7 @@ public partial class arduinoTest : Node2D
 	bool handOnPlate = false;
 	double timer = 3;
 	float temperatureCounter = 0f;
+	private int temperatureRise = 3;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -37,8 +38,8 @@ public partial class arduinoTest : Node2D
 		if(!serialPort.IsOpen) return;
 		
 		string serialMessage = serialPort.ReadExisting();
-		if(serialMessage.Length >= 4){
-			text.Text = "Hand ist drauf";
+		if(serialMessage.Length >= 1){
+			text.Text = "Hand is on";
 			handOnPlate = true;
 		}
 		else
@@ -50,7 +51,7 @@ public partial class arduinoTest : Node2D
 			timer -= delta;
 			if (timer <= 0){			
 				temperatureText.Text = "Temperature rises " + temperatureCounter;
-				serialPort.Write("1");
+				serialPort.Write(temperatureRise.ToString());
 				temperatureCounter += 1;
 				handOnPlate = false;
 				timer = 3;
