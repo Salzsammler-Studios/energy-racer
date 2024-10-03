@@ -5,8 +5,9 @@ var currentCapacity: int    = 0
 var capacityVelocity: float = 0
 var isFilling: bool         = false
 var isFull: bool            = true
-
+@onready var animation_player = $AnimationPlayer
 @onready var progressBar = $ProgressBar
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -15,6 +16,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if isFilling:
+		animation_player.play("Filling")
 		var bodies = get_overlapping_bodies()
 		if len(bodies) == 1:
 			if bodies[0].name == "PlayerCar" or bodies[0].name == "PlayerBycicle":
@@ -36,6 +38,8 @@ func _process(delta):
 		progressBar.add_theme_stylebox_override("fill", sb)
 		sb.bg_color = Color("ff4a8a") if currentCapacity < 0 else Color("76a590")
 		progressBar.value = abs(currentCapacity)
+	if not isFilling or isFull:
+		animation_player.play("Idle")
 
 
 func _on_body_entered(body):

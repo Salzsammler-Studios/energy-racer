@@ -3,7 +3,7 @@ extends Area2D
 var isFilling = false
 var fillRate = 1
 @onready var playerCar = $"../PlayerCar"
-
+@onready var animation_player = $AnimationPlayer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -13,8 +13,10 @@ func _process(delta):
 	if isFilling:
 		playerCar.isFilling = true
 		playerCar.fill_gas_tank(fillRate * delta)
+		animation_player.play("Filling")
 	else:
 		playerCar.isFilling = false
+		animation_player.play("Idle")
 
 
 func _on_body_entered(body):

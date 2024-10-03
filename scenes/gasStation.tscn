@@ -1,21 +1,51 @@
-[gd_scene load_steps=4 format=3 uid="uid://7swkx11biivn"]
+[gd_scene load_steps=7 format=3 uid="uid://7swkx11biivn"]
 
 [ext_resource type="Script" path="res://scripts/gasStation.gd" id="1_7oyd8"]
-[ext_resource type="Texture2D" uid="uid://db4ojrs781v36" path="res://assets/reservoir/temple.png" id="2_a38ok"]
+[ext_resource type="Texture2D" uid="uid://bmyuhiur0x6pi" path="res://assets/gasStation/gas-station-fuel-svgrepo-com.svg" id="2_yftdt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpyfl"]
-size = Vector2(70, 44)
+size = Vector2(60, 59)
+
+[sub_resource type="Animation" id="Animation_jnjfm"]
+resource_name = "Idle"
+
+[sub_resource type="Animation" id="Animation_d42mg"]
+resource_name = "Filling"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(0.13, 0.13)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ynw6j"]
+_data = {
+"Filling": SubResource("Animation_d42mg"),
+"Idle": SubResource("Animation_jnjfm")
+}
 
 [node name="gasStation" type="Area2D"]
 script = ExtResource("1_7oyd8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_a38ok")
+scale = Vector2(0.106824, 0.106824)
+texture = ExtResource("2_yftdt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_hpyfl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ynw6j")
+}
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
