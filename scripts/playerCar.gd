@@ -8,6 +8,7 @@ var currentFuelCapacity: float = 100
 var fuelDepletionRate : float          = 1 # fuel depletion in sec
 var isFilling : bool = false
 
+@onready var screen_size = get_viewport_rect().size 
 @onready var arduino_handler = $ArduinoHandler
 var carScore: int = 0
 
@@ -25,8 +26,11 @@ func _physics_process(delta):
 	speed = maxf(MAX_SPEED * (currentFuelCapacity/100),MIN_SPEED)
 	velocity = direction * speed
 	rotation = lerp_angle(rotation, velocity.angle(), 0.25)
-
 	move_and_slide()
+	
+	#Wrap movement around the screen so that if they leave the screen they appear at the other side
+	position.x = wrapf(position.x, -screen_size.x/1.25, screen_size.x/1.25)
+	position.y = wrapf(position.y, -screen_size.y/1.25, screen_size.y/1.25)
 
 func short_angle_dist(from, to):
 	var max_angle: float  = PI * 2
