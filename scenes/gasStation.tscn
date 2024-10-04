@@ -6,9 +6,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpyfl"]
 size = Vector2(60, 59)
 
-[sub_resource type="Animation" id="Animation_jnjfm"]
-resource_name = "Idle"
-
 [sub_resource type="Animation" id="Animation_d42mg"]
 resource_name = "Filling"
 loop_mode = 1
@@ -24,6 +21,9 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0.1, 0.1), Vector2(0.13, 0.13)]
 }
+
+[sub_resource type="Animation" id="Animation_jnjfm"]
+resource_name = "Idle"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ynw6j"]
 _data = {

@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1ccjxw425l3h"]
+[gd_scene load_steps=3 format=3 uid="uid://d1ccjxw425l3h"]
 
+[ext_resource type="Script" path="res://scripts/winScreenUI.gd" id="1_ont7d"]
 [ext_resource type="Theme" uid="uid://c1l4dbc35ej4v" path="res://assets/UI/UITheme.tres" id="2_qrup8"]
 
 [node name="WinScreen" type="CanvasLayer"]
+script = ExtResource("1_ont7d")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 anchors_preset = 8
@@ -36,3 +38,5 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Neues Spiel"
+
+[connection signal="pressed" from="PanelContainer/GridContainer/ResetButton" to="." method="_on_reset_button_pressed"]
