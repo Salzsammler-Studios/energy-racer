@@ -1,42 +1,42 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1ccjxw425l3h"]
+[gd_scene load_steps=5 format=3 uid="uid://d1ccjxw425l3h"]
 
 [ext_resource type="Script" path="res://scripts/winScreenUI.gd" id="1_ont7d"]
-[ext_resource type="Theme" uid="uid://c1l4dbc35ej4v" path="res://assets/UI/UITheme.tres" id="2_qrup8"]
+[ext_resource type="Texture2D" uid="uid://bqlxr620w7gup" path="res://assets/UI/Prinbles_GUI_Asset_Silent (1.0.0)/asset/png/Panel/Window/Medium.png" id="2_powwg"]
+[ext_resource type="FontFile" uid="uid://b68t3yetukquy" path="res://assets/fonts/JosefinSans-Bold.ttf" id="3_1d2ok"]
+[ext_resource type="Texture2D" uid="uid://cjpk5mhclacm6" path="res://assets/UI/Prinbles_GUI_Asset_Silent (1.0.0)/asset/png/Buttons/Rect-Medium/PlayIcon/Default.png" id="3_pxg33"]
 
 [node name="WinScreen" type="CanvasLayer"]
 script = ExtResource("1_ont7d")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -243.0
-offset_top = -110.5
-offset_right = 243.0
-offset_bottom = 110.5
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("2_qrup8")
+[node name="Sprite2D" type="TextureRect" parent="."]
+offset_left = 302.0
+offset_top = 196.0
+offset_right = 910.0
+offset_bottom = 444.0
+texture = ExtResource("2_powwg")
 
-[node name="GridContainer" type="GridContainer" parent="PanelContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="Label" type="Label" parent="PanelContainer/GridContainer"]
-layout_mode = 2
+[node name="Label" type="Label" parent="."]
+offset_left = 427.0
+offset_top = 205.0
+offset_right = 797.0
+offset_bottom = 280.0
+theme_override_fonts/font = ExtResource("3_1d2ok")
 text = "X/Y HAT GEWONNEN!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ResetButton" type="Button" parent="PanelContainer/GridContainer"]
-layout_mode = 2
+[node name="ResetButton" type="Button" parent="."]
+offset_left = 539.0
+offset_top = 315.0
+offset_right = 683.0
+offset_bottom = 394.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "Neues Spiel"
+theme_type_variation = &"FlatButton"
+text = "
+"
+icon = ExtResource("3_pxg33")
+icon_alignment = 1
+expand_icon = true
 
-[connection signal="pressed" from="PanelContainer/GridContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="ResetButton" to="." method="_on_reset_button_pressed"]

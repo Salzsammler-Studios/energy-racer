@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvmu0syiltsxj"]
+[gd_scene load_steps=6 format=3 uid="uid://dvmu0syiltsxj"]
 
 [ext_resource type="Script" path="res://scripts/mainMenu.gd" id="1_a8njr"]
 [ext_resource type="Texture2D" uid="uid://sx3plwfvio4h" path="res://assets/UI/mainMenuBackgroundImage.jpg" id="2_gclkx"]
+[ext_resource type="FontFile" uid="uid://b68t3yetukquy" path="res://assets/fonts/JosefinSans-Bold.ttf" id="3_urg6t"]
 [ext_resource type="AudioStream" uid="uid://d10p0bai2sih5" path="res://assets/startupMusic.mp3" id="3_wb07g"]
+[ext_resource type="Texture2D" uid="uid://cjpk5mhclacm6" path="res://assets/UI/Prinbles_GUI_Asset_Silent (1.0.0)/asset/png/Buttons/Rect-Medium/PlayIcon/Default.png" id="4_uai58"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_a8njr")
@@ -16,14 +18,15 @@ texture = ExtResource("2_gclkx")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -335.0
-offset_top = 31.0
-offset_right = 393.0
-offset_bottom = 168.0
+offset_left = -352.0
+offset_top = 59.0
+offset_right = 376.0
+offset_bottom = 196.0
 grow_horizontal = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0.988235, 1)
 theme_override_constants/shadow_offset_x = 18
+theme_override_fonts/normal_font = ExtResource("3_urg6t")
 theme_override_font_sizes/normal_font_size = 101
 text = "Energy Racer"
 
@@ -40,7 +43,8 @@ offset_bottom = 29.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 36
-text = "Start"
+icon = ExtResource("4_uai58")
+flat = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_wb07g")
