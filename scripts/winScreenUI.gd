@@ -1,6 +1,6 @@
 extends CanvasLayer
-@onready var winScreenLabel = $PanelContainer/GridContainer/Label
-@onready var playAgainButton = $PanelContainer/GridContainer/ResetButton
+@onready var winScreenLabel = $Label
+@onready var playAgainButton = $ResetButton
 var gameScene = preload("res://Scenes/world.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
