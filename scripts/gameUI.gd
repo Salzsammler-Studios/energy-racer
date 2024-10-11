@@ -1,15 +1,20 @@
 extends CanvasLayer
 
+@onready var carScoreLabel = $PanelContainer3/CarUI/Label
+@onready var bikeScoreLabel = $PanelContainer2/BikeUI/Label
 
-@onready var CarScoreText = $PanelContainer3/CarUI/Label
-@onready var BikeScoreText = $PanelContainer2/BikeUI/Label
+@onready var heatlabel = $PanelContainer/HeatUI/Label
+
+const degreeText = 'ºC'
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	carScoreLabel.text = '0/10'
+	bikeScoreLabel.text = '0/10'
+	heatlabel.text = '28'+degreeText
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	CarScoreText.text = str(Score.carScore)
-	BikeScoreText.text = str(Score.bikeScore)
+	carScoreLabel.text = str(Score.carScore) + '/10'
+	bikeScoreLabel.text = str(Score.bikeScore) + '/10'
 
