@@ -13,7 +13,7 @@ var isFilling : bool = false
 var carScore: int = 0
 
 
-func _process(delta):
+func _process(_delta):
 	arduino_handler.SetRefuelling(isFilling)
 		
 		
@@ -23,7 +23,7 @@ func _physics_process(delta):
 	currentFuelCapacity = currentFuelCapacity - (fuelDepletionRate * delta)
 	currentFuelCapacity = maxf(5,MAX_FUEL)
 	
-	speed = maxf(MAX_SPEED * (currentFuelCapacity/100),MIN_SPEED)
+	speed = maxi(MAX_SPEED * int((currentFuelCapacity/100)),MIN_SPEED)
 	velocity = direction * speed
 	rotation = lerp_angle(rotation, velocity.angle(), 0.25)
 	move_and_slide()

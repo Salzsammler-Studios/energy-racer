@@ -14,7 +14,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if isFilling:
 		animation_player.play("Filling")
 		var bodies = get_overlapping_bodies()
@@ -22,7 +22,7 @@ func _process(delta):
 			if bodies[0].name == "PlayerCar" or bodies[0].name == "PlayerBycicle":
 				capacityVelocity = bodies[0].get_reservoir_filling_rate()
 			
-		currentCapacity += capacityVelocity
+		currentCapacity += int(capacityVelocity)
 		clampf(currentCapacity, -MAX_CAPACITY, MAX_CAPACITY)
 		if currentCapacity < MAX_CAPACITY and currentCapacity > -MAX_CAPACITY:
 			isFull = false

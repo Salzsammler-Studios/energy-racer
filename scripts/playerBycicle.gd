@@ -4,7 +4,7 @@ extends CharacterBody2D
 var acceleration: float = 1.1 # velocity based on the cycling speed
 @onready var screen_size = get_viewport_rect().size 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if Input.is_action_pressed("accellerate"):
 		acceleration = 2
 	else:
