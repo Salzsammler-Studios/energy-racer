@@ -3837,8 +3837,8 @@ sources/13 = SubResource("TileSetAtlasSource_kd31r")
 
 [node name="WorldMapSprite" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(41, 37.5)
-scale = Vector2(0.926042, 1.0112)
+position = Vector2(37, 39)
+scale = Vector2(1.53958, 1.69857)
 texture = ExtResource("21_6b8gq")
 
 [node name="PixelWorldMap" type="Sprite2D" parent="."]
@@ -3864,35 +3864,35 @@ position = Vector2(41, 39)
 zoom = Vector2(0.65, 0.65)
 
 [node name="Reservoir" parent="." instance=ExtResource("16_c78ui")]
-position = Vector2(-589, -207)
+position = Vector2(-1032, -458)
 
 [node name="Reservoir2" parent="." instance=ExtResource("16_c78ui")]
-position = Vector2(-385, 247)
+position = Vector2(-695, 388)
 
 [node name="Reservoir3" parent="." instance=ExtResource("16_c78ui")]
-position = Vector2(135, 190)
+position = Vector2(194, 318)
 
 [node name="Reservoir4" parent="." instance=ExtResource("16_c78ui")]
-position = Vector2(9, -214)
+position = Vector2(-10, -401)
 
 [node name="Reservoir5" parent="." instance=ExtResource("16_c78ui")]
-position = Vector2(454, -334)
+position = Vector2(895, -523)
 
 [node name="Reservoir6" parent="." instance=ExtResource("16_c78ui")]
-position = Vector2(629, -80)
+position = Vector2(968, -43)
 
 [node name="PlayerCar" parent="." instance=ExtResource("16_5riqm")]
 z_index = 1
-position = Vector2(-661, 143)
+position = Vector2(-124, -87)
 
 [node name="PlayerBycicle" parent="." instance=ExtResource("16_45rk0")]
 z_index = 1
-position = Vector2(-670, 375)
+position = Vector2(-123, 44)
 
 [node name="gasStation" parent="." instance=ExtResource("19_6ljgu")]
-position = Vector2(-192, -408)
+position = Vector2(-371, -694)
 
 [node name="gasStation2" parent="." instance=ExtResource("19_6ljgu")]
-position = Vector2(805, 315)
+position = Vector2(1291, 526)
 
 [node name="UIScreen" parent="." instance=ExtResource("20_204xt")]
