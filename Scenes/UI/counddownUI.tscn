@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cec12ttbm3ty5"]
+
+[ext_resource type="Script" path="res://scripts/countdownUI.gd" id="1_j20jh"]
+[ext_resource type="FontFile" uid="uid://b68t3yetukquy" path="res://assets/fonts/JosefinSans-Bold.ttf" id="2_3xqrx"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_j20jh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = -1
+anchor_left = 0.50026
+anchor_top = 0.5
+anchor_right = 0.577865
+anchor_bottom = 0.552778
+offset_left = -38.5
+offset_top = -56.0
+offset_right = 38.5
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_3xqrx")
+theme_override_font_sizes/normal_font_size = 128
+text = "3"
+metadata/_edit_use_anchors_ = true

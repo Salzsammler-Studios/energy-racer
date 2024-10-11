@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://c01xwyre1wrhb"]
+[gd_scene load_steps=38 format=3 uid="uid://c01xwyre1wrhb"]
 
 [ext_resource type="Texture2D" uid="uid://dpn32a8wl11w5" path="res://assets/HAS Overworld 2.1/GrassBiome/GB-LandTileset.png" id="1_lhbuj"]
 [ext_resource type="Texture2D" uid="uid://ddq5r1w7cytb0" path="res://assets/HAS Overworld 2.1/DirtBiome/DB-LandTileset.png" id="2_aoj8h"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://7swkx11biivn" path="res://Scenes/gasStation.tscn" id="19_6ljgu"]
 [ext_resource type="PackedScene" uid="uid://o8x6t3inkoeg" path="res://Scenes/UI/gameUI.tscn" id="20_204xt"]
 [ext_resource type="Texture2D" uid="uid://brj1hc6ju5qc5" path="res://assets/worldMapRealistic.png" id="21_6b8gq"]
+[ext_resource type="PackedScene" uid="uid://cec12ttbm3ty5" path="res://Scenes/UI/counddownUI.tscn" id="22_6wmlg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vgxja"]
 texture = ExtResource("1_lhbuj")
@@ -3896,3 +3897,5 @@ position = Vector2(-371, -694)
 position = Vector2(1291, 526)
 
 [node name="UIScreen" parent="." instance=ExtResource("20_204xt")]
+
+[node name="CanvasLayer" parent="." instance=ExtResource("22_6wmlg")]
