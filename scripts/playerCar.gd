@@ -26,7 +26,8 @@ func _physics_process(delta):
 	
 	speed = maxi(MAX_SPEED * (currentFuelCapacity/100),MIN_SPEED)
 	velocity = direction * speed
-	rotation = lerp_angle(rotation, velocity.angle(), 0.25)
+	if direction.length() != 0:
+		rotation = lerp_angle(rotation, velocity.angle(), 0.25)
 	move_and_slide()
 	
 	#Wrap movement around the screen so that if they leave the screen they appear at the other side

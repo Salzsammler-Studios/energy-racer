@@ -53,7 +53,7 @@ value = 50.0
 fill_mode = 4
 texture_under = ExtResource("3_618sc")
 texture_progress = ExtResource("3_618sc")
-tint_progress = Color(0.749268, 0, 0.322475, 1)
+tint_progress = Color(0.207843, 0.443137, 0.623529, 1)
 radial_initial_angle = 180.0
 
 [node name="BycicleVelocityUI" type="TextureProgressBar" parent="."]
@@ -74,7 +74,7 @@ value = 5.0
 fill_mode = 4
 texture_under = ExtResource("3_618sc")
 texture_progress = ExtResource("3_618sc")
-tint_progress = Color(0, 0.482353, 0.196078, 1)
+tint_progress = Color(0.882353, 0.227451, 0.227451, 1)
 radial_initial_angle = 180.0
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
