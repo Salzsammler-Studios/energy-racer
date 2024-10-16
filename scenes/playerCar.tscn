@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cc7cik7oud4yc"]
 
-[ext_resource type="Texture2D" uid="uid://cggprj71sbbei" path="res://assets/car/car_red_1.png" id="1_wmyn0"]
 [ext_resource type="Script" path="res://scripts/playerCar.gd" id="1_ys652"]
+[ext_resource type="Texture2D" uid="uid://dkyev7v6qt4wp" path="res://assets/car/minicar_blue.png" id="2_2d3gl"]
 [ext_resource type="Script" path="res://scripts/arduinoHandler.cs" id="3_mdmlw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_478xr"]
@@ -13,8 +13,8 @@ motion_mode = 1
 script = ExtResource("1_ys652")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = 1.5708
-texture = ExtResource("1_wmyn0")
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_2d3gl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
