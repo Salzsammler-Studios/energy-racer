@@ -13,6 +13,7 @@ func _physics_process(_delta):
 	velocity = direction * speed * acceleration
 	rotation = lerp_angle(rotation, velocity.angle(), 0.25)
 	move_and_slide()
+	Score.update_bycicle_velocity(acceleration)
 	
 	#Wrap movement around the screen so that if they leave the screen they appear at the other side
 	position.x = wrapf(position.x, -screen_size.x/1.25, screen_size.x/1.25)

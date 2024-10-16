@@ -2,7 +2,10 @@ extends CanvasLayer
 
 @onready var carScoreLabel = $PanelContainer3/CarUI/Label
 @onready var bikeScoreLabel = $PanelContainer2/BikeUI/Label
-@onready var fuelLabel = $PanelContainer4/FuelUI/Label
+
+@onready var fuelProgressBar = $CarFuelRateUI
+@onready var bycicleVelocityUi = $BycicleVelocityUI
+
 
 @onready var heatlabel = $PanelContainer/HeatUI/Label
 
@@ -12,13 +15,15 @@ const degreeText = 'ºC'
 func _ready():
 	carScoreLabel.text = '0/10'
 	bikeScoreLabel.text = '0/10'
-	fuelLabel.text = '100 %'
 	heatlabel.text = '28'+degreeText
+	fuelProgressBar.value = 0
+	bycicleVelocityUi.value = 0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	carScoreLabel.text = str(Score.carScore) + '/10'
 	bikeScoreLabel.text = str(Score.bikeScore) + '/10'
-	fuelLabel.text = str(int(Score.fuelLevel))+ ' %'
+	fuelProgressBar.value = Score.fuelLevel
+	bycicleVelocityUi.value = Score.bycicleVelocity
 
