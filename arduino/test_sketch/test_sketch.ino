@@ -1,5 +1,7 @@
 int switchPin = 2;
 int heatPin = 5;
+String outgoingMessage, imcomingMessage;
+int val;
 
 // Heat Plate variables
 int pressure = 0;
@@ -15,27 +17,53 @@ int velocityOut = 0;
 
 
 void setup() {
-  // put your setup code here, to run once:
   Serial.begin(9600);
+  Serial.flush(); //empty serial
+  pinMode(switchPin, INPUT);    // sets the digital pin as input to read switch
   pinMode(heatPin, OUTPUT);
+  digitalWrite(switchPin, HIGH);
+  pinMode(13,OUTPUT);
+  attachInterrupt(0, iRWheel, CHANGE);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+
   pressure = map(analogRead(0),1023,0,0,15);  
-  if(pressure >= 4)
+  
+  if (millis()-temp > 3000) 
   {
-    Serial.println("HelloGodot"); //Godot 'answers' by setting handOnPlate == true
+     velocity = 0;
   }
   
-  if(Serial.read() == '1') //'1' is send when refuelling and handOnPlate
-  {
-     analogWrite(heatPin, temperature);
-     temperature += temperatureRise;
+  velocityOut = int(velocity);  
+  outgoingMessage = String(pressure) + "|" + String(velocityOut);
+
+  delay(30);
+  Serial.println(outgoingMessage);
+
+    if(Serial.read() == '1') //'1' is sent when refuelling and handOnPlate
+    {
+       analogWrite(heatPin, temperature);
+       temperature += temperatureRise;
+       temperature = min(temperature, 255);
+    }
+    if(Serial.read() == '0') //'0' is sent when handOnPlate == false
+    {
+      analogWrite(heatPin, 0);
+      temperature = 0;
+    }
+}
+
+void iRWheel(){
+  val = digitalRead(switchPin);
+  if (val==HIGH){  
+    digitalWrite(13,LOW);
+    temp = millis();
   }
-  if(Serial.read() == '0') //'0' is send when handOnPlate == false
-  {
-    analogWrite(heatPin, 0);
-    temperature = 0;
-  }
+  if (val==LOW) { 
+    digitalWrite(13,HIGH);
+    duration = millis()-temp;
+    velocity = diameter / duration;
+    velocity = min(15,velocity);
+  }  
 }
