@@ -11,14 +11,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if isFilling:
-		print("is filling")
 		playerCar.isFilling = true
 		playerCar.fill_gas_tank(fillRate * delta)
 		animation_player.play("Filling")
-	else:
-		playerCar.isFilling = false
-		animation_player.play("Idle")
-
+		
 
 func _on_body_entered(body):
 	if body.name == "PlayerCar":
@@ -28,3 +24,5 @@ func _on_body_entered(body):
 func _on_body_exited(body):
 	if body.name == "PlayerCar":
 		isFilling = false
+		playerCar.isFilling = false
+		animation_player.play("Idle")

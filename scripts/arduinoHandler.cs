@@ -37,6 +37,7 @@ public partial class arduinoHandler : Node
 		if(!serialPort.IsOpen) return;
 
 		string serialMessage = serialPort.ReadLine();
+		GD.Print("Message: " + serialMessage);
 		int currentPressure = GetPressure(serialMessage);
 		//GD.Print("Pressure: " + currentPressure);
 		if(currentPressure >= 4){
@@ -66,7 +67,7 @@ public partial class arduinoHandler : Node
 
 	public void SetRefuelling(bool isRefuelling)
 	{
-		GD.Print("SetRefuelling is called with " , isRefuelling);
+		//GD.Print("SetRefuelling is called with " , isRefuelling);
 		refuelling = isRefuelling;
 	}
 
