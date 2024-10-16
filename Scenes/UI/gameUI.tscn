@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://3vkmoir6a1cj" path="res://assets/UI/Screenshot_6.png" id="1_b2dgs"]
 [ext_resource type="Script" path="res://scripts/gameUI.gd" id="1_ph33r"]
 [ext_resource type="Texture2D" uid="uid://diafswajsrhrf" path="res://assets/UI/thermometer.png" id="2_8xw74"]
+[ext_resource type="Texture2D" uid="uid://bjuoc54b5nlso" path="res://assets/UI/HalfCircleProgressBar.png" id="3_618sc"]
 [ext_resource type="Texture2D" uid="uid://slm5c2vsqt68" path="res://assets/UI/Screenshot_5.png" id="3_pci6j"]
-[ext_resource type="Texture2D" uid="uid://bmyuhiur0x6pi" path="res://assets/gasStation/gas-station-fuel-svgrepo-com.svg" id="5_pvpgy"]
 
 [node name="UIScreen" type="CanvasLayer"]
 layer = 2
@@ -36,14 +36,55 @@ text = ": 25"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="CarFuelRateUI" type="TextureProgressBar" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -270.0
+offset_top = -101.0
+offset_right = 130.0
+offset_bottom = 99.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+value = 50.0
+fill_mode = 4
+texture_under = ExtResource("3_618sc")
+texture_progress = ExtResource("3_618sc")
+tint_progress = Color(0.749268, 0, 0.322475, 1)
+radial_initial_angle = 180.0
+
+[node name="BycicleVelocityUI" type="TextureProgressBar" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 152.0
+offset_top = -101.0
+offset_right = 552.0
+offset_bottom = 99.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+max_value = 5.0
+value = 5.0
+fill_mode = 4
+texture_under = ExtResource("3_618sc")
+texture_progress = ExtResource("3_618sc")
+tint_progress = Color(0, 0.482353, 0.196078, 1)
+radial_initial_angle = 180.0
+
 [node name="PanelContainer" type="PanelContainer" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -1317.0
-offset_top = 1035.0
-offset_right = -1198.0
-offset_bottom = 1080.0
+offset_left = -144.0
+offset_top = 22.0
+offset_right = -25.0
+offset_bottom = 67.0
 grow_horizontal = 0
 
 [node name="HeatUI" type="GridContainer" parent="PanelContainer"]
@@ -83,31 +124,5 @@ texture = ExtResource("3_pci6j")
 expand_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer2/BikeUI"]
-layout_mode = 2
-text = ": 25"
-
-[node name="PanelContainer4" type="PanelContainer" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -103.0
-offset_top = -47.0
-offset_right = 16.0
-offset_bottom = -2.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="FuelUI" type="GridContainer" parent="PanelContainer4"]
-layout_mode = 2
-columns = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer4/FuelUI"]
-layout_mode = 2
-texture = ExtResource("5_pvpgy")
-expand_mode = 2
-
-[node name="Label" type="Label" parent="PanelContainer4/FuelUI"]
 layout_mode = 2
 text = ": 25"
