@@ -38,7 +38,7 @@ void loop() {
   velocityOut = int(velocity);  
   outgoingMessage = String(pressure) + "|" + String(velocityOut);
 
-  delay(30);
+  delay(50);
   Serial.println(outgoingMessage);
 
     if(Serial.read() == '1') //'1' is sent when refuelling and handOnPlate
@@ -56,6 +56,7 @@ void loop() {
 
 void iRWheel(){
   val = digitalRead(switchPin);
+  Serial.print(val);
   if (val==HIGH){  
     digitalWrite(13,LOW);
     temp = millis();
