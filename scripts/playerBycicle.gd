@@ -3,6 +3,9 @@ extends CharacterBody2D
 @export var speed : int         = 400  # speed in pixels/sec
 var acceleration: float = 1.1 # velocity based on the cycling speed
 @onready var screen_size = get_viewport_rect().size 
+@onready var animatedSprite = $AnimatedSprite2D
+var angle = 0
+
 
 func _physics_process(_delta):
 	if Input.is_action_pressed("accellerate"):
@@ -11,9 +14,14 @@ func _physics_process(_delta):
 		acceleration = 1
 	var direction: Vector2 = Input.get_vector("left2", "right2", "up2", "down2")
 	velocity = direction * speed * acceleration
-	rotation = lerp_angle(rotation, velocity.angle(), 0.25)
 	move_and_slide()
 	Score.update_bycicle_velocity(acceleration)
+	
+	# figure out directional angle
+	if direction.length() != 0:
+		angle = direction.angle() / (PI/4)
+		angle = wrapi(int(angle), 0, 8)
+	animatedSprite.play(str(angle))
 	
 	#Wrap movement around the screen so that if they leave the screen they appear at the other side
 	position.x = wrapf(position.x, -screen_size.x/1.25, screen_size.x/1.25)
