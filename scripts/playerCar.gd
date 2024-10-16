@@ -15,15 +15,16 @@ var carScore: int = 0
 
 func _process(_delta):
 	arduino_handler.SetRefuelling(isFilling)
+	Score.update_fuel_level(currentFuelCapacity)
 		
 		
 func _physics_process(delta):
 	var direction: Vector2 = Input.get_vector("left", "right", "up", "down")
 	# process oil usage
 	currentFuelCapacity = currentFuelCapacity - (fuelDepletionRate * delta)
-	currentFuelCapacity = maxf(5,MAX_FUEL)
+	currentFuelCapacity = clampf(currentFuelCapacity, 5,MAX_FUEL)
 	
-	speed = maxi(MAX_SPEED * int((currentFuelCapacity/100)),MIN_SPEED)
+	speed = maxi(MAX_SPEED * (currentFuelCapacity/100),MIN_SPEED)
 	velocity = direction * speed
 	rotation = lerp_angle(rotation, velocity.angle(), 0.25)
 	move_and_slide()

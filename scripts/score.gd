@@ -11,6 +11,8 @@ var CAR_RESERVOIR_FILL_SCORE = 1
 
 var VICTORY_SCORE: int = 10
 
+var fuelLevel: float = 100
+
 func add_bike_score():
 	bikeScore += BIKE_RESERVOIR_FILL_SCORE
 	print(bikeScore)
@@ -29,3 +31,5 @@ func reset_score():
 	bikeScore = 0
 	carScore = 0
 
+func update_fuel_level(value: float):
+	fuelLevel = value

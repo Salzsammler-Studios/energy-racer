@@ -2,14 +2,17 @@ extends CanvasLayer
 
 @onready var carScoreLabel = $PanelContainer3/CarUI/Label
 @onready var bikeScoreLabel = $PanelContainer2/BikeUI/Label
+@onready var fuelLabel = $PanelContainer4/FuelUI/Label
 
 @onready var heatlabel = $PanelContainer/HeatUI/Label
+
 
 const degreeText = 'ºC'
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	carScoreLabel.text = '0/10'
 	bikeScoreLabel.text = '0/10'
+	fuelLabel.text = '100 %'
 	heatlabel.text = '28'+degreeText
 
 
@@ -17,4 +20,5 @@ func _ready():
 func _process(_delta):
 	carScoreLabel.text = str(Score.carScore) + '/10'
 	bikeScoreLabel.text = str(Score.bikeScore) + '/10'
+	fuelLabel.text = str(int(Score.fuelLevel))+ ' %'
 
