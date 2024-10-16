@@ -37,7 +37,6 @@ public partial class arduinoHandler : Node
 		if(!serialPort.IsOpen) return;
 
 		string serialMessage = serialPort.ReadLine();
-		GD.Print("Message: " + serialMessage);
 		int currentPressure = GetPressure(serialMessage);
 		//GD.Print("Pressure: " + currentPressure);
 		if(currentPressure >= 4){
