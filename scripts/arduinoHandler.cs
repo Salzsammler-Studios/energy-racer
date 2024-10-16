@@ -8,7 +8,7 @@ public partial class arduinoHandler : Node
 	private bool handOnPlate = false;
 	private bool refuelling;
 	private double timer;
-	private double timerReset = 3;
+	private double timerReset = 2;
 	
 	private float temperatureCounter = 0f;
 	
@@ -27,7 +27,7 @@ public partial class arduinoHandler : Node
 		serialPort.DtrEnable = true;
 		serialPort.RtsEnable = true;
 		serialPort.PortName = "COM6"; //check if this is the case, otherwise change in device manager!
-		serialPort.BaudRate = 9600;
+		serialPort.BaudRate = 9600; //needs to be the same in Arduino Code
 		serialPort.Open();
 	}
 
@@ -35,9 +35,11 @@ public partial class arduinoHandler : Node
 	public override void _Process(double delta)
 	{
 		if(!serialPort.IsOpen) return;
-		
-		string serialMessage = serialPort.ReadExisting();
-		if(serialMessage.Length >= 1){
+
+		string serialMessage = serialPort.ReadLine();
+		int currentPressure = GetPressure(serialMessage);
+		//GD.Print("Pressure: " + currentPressure);
+		if(currentPressure >= 4){
 			handOnPlate = true;
 		}
 		else
@@ -50,6 +52,7 @@ public partial class arduinoHandler : Node
 			if (timer <= 0){			
 				serialPort.Write("1");
 				temperatureCounter += 1;
+				//GD.Print("Heating up!");
 				handOnPlate = false;
 				timer = timerReset;
 			}
@@ -63,7 +66,18 @@ public partial class arduinoHandler : Node
 
 	public void SetRefuelling(bool isRefuelling)
 	{
-		//GD.Print("SetRefuelling is called with " , isRefuelling);
+		GD.Print("SetRefuelling is called with " , isRefuelling);
 		refuelling = isRefuelling;
+	}
+
+	int GetPressure(string arduinoMessage)
+	{
+		string[] temp = arduinoMessage.Split('|');
+		string result = temp[0];
+		if (result.Length != 0)
+		{
+			return result.ToInt();
+		}
+		return 0;
 	}
 }
