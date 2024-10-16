@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var MAX_CAPACITY: int       = 100
-var currentCapacity: int    = 0
+var currentCapacity: float    = 0
 var capacityVelocity: float = 0
 var isFilling: bool         = false
 var isFull: bool            = true
@@ -22,7 +22,7 @@ func _process(_delta):
 			if bodies[0].name == "PlayerCar" or bodies[0].name == "PlayerBycicle":
 				capacityVelocity = bodies[0].get_reservoir_filling_rate()
 			
-		currentCapacity += int(capacityVelocity)
+		currentCapacity += capacityVelocity
 		clampf(currentCapacity, -MAX_CAPACITY, MAX_CAPACITY)
 		if currentCapacity < MAX_CAPACITY and currentCapacity > -MAX_CAPACITY:
 			isFull = false
