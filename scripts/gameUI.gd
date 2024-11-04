@@ -26,4 +26,5 @@ func _process(_delta):
 	bikeScoreLabel.text = str(Score.bikeScore) + '/10'
 	fuelProgressBar.value = Score.fuelLevel
 	bycicleVelocityUi.value = Score.bycicleVelocity
+	# todo: decide how to increment Heat Label
 
