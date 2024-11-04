@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
-const MAX_SPEED: int = 400
-const MIN_SPEED: int = 10
+@export var MAX_SPEED: int = 400
+@export var MIN_SPEED: int = 10
 var speed : int     = 400  # speed in pixels/sec
 const MAX_FUEL: int = 100
 var currentFuelCapacity: float = 100
-var fuelDepletionRate : float          = 1 # fuel depletion in sec
-var isFilling : bool = false
+@export var fuelDepletionRate : float          = 1 # fuel depletion in sec
+@export var isFilling : bool = false
 
 @onready var screen_size = get_viewport_rect().size 
 @onready var arduino_handler = $ArduinoHandler

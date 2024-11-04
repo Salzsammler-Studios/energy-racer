@@ -28,12 +28,15 @@ public partial class arduinoHandler : Node
 		serialPort.RtsEnable = true;
 		serialPort.PortName = "COM6"; //check if this is the case, otherwise change in device manager!
 		serialPort.BaudRate = 9600; //needs to be the same in Arduino Code
+		//serialPort.ReadTimeout = 1000; // Set timeout to 100 milliseconds or another appropriate value
+
 		serialPort.Open();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		
 		if(!serialPort.IsOpen) return;
 
 		string serialMessage = serialPort.ReadLine();

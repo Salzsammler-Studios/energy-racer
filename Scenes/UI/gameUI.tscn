@@ -1,10 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://o8x6t3inkoeg"]
+[gd_scene load_steps=3 format=3 uid="uid://o8x6t3inkoeg"]
 
-[ext_resource type="Texture2D" uid="uid://3vkmoir6a1cj" path="res://assets/UI/Screenshot_6.png" id="1_b2dgs"]
 [ext_resource type="Script" path="res://scripts/gameUI.gd" id="1_ph33r"]
-[ext_resource type="Texture2D" uid="uid://diafswajsrhrf" path="res://assets/UI/thermometer.png" id="2_8xw74"]
-[ext_resource type="Texture2D" uid="uid://bjuoc54b5nlso" path="res://assets/UI/HalfCircleProgressBar.png" id="3_47dhc"]
-[ext_resource type="Texture2D" uid="uid://slm5c2vsqt68" path="res://assets/UI/Screenshot_5.png" id="3_pci6j"]
+[ext_resource type="Texture2D" uid="uid://bjuoc54b5nlso" path="res://assets/UI/HalfCircleProgressBar.png" id="2_2rbyi"]
 
 [node name="UIScreen" type="CanvasLayer"]
 layer = 2
@@ -27,7 +24,6 @@ columns = 2
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer3/CarUI"]
 layout_mode = 2
-texture = ExtResource("1_b2dgs")
 expand_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer3/CarUI"]
@@ -51,7 +47,8 @@ grow_vertical = 0
 scale = Vector2(0.5, 0.5)
 value = 50.0
 fill_mode = 4
-texture_progress = ExtResource("3_47dhc")
+texture_under = ExtResource("2_2rbyi")
+texture_progress = ExtResource("2_2rbyi")
 tint_progress = Color(0.207843, 0.443137, 0.623529, 1)
 radial_initial_angle = 180.0
 
@@ -71,7 +68,8 @@ scale = Vector2(0.5, 0.5)
 max_value = 5.0
 value = 5.0
 fill_mode = 4
-texture_progress = ExtResource("3_47dhc")
+texture_under = ExtResource("2_2rbyi")
+texture_progress = ExtResource("2_2rbyi")
 tint_progress = Color(0.882353, 0.227451, 0.227451, 1)
 radial_initial_angle = 180.0
 
@@ -91,7 +89,6 @@ columns = 2
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/HeatUI"]
 layout_mode = 2
-texture = ExtResource("2_8xw74")
 expand_mode = 2
 stretch_mode = 5
 
@@ -118,7 +115,6 @@ columns = 2
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer2/BikeUI"]
 layout_mode = 2
-texture = ExtResource("3_pci6j")
 expand_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer2/BikeUI"]

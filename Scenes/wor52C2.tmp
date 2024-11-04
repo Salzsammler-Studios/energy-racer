@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://brj1hc6ju5qc5" path="res://assets/worldMapRealistic.png" id="21_6b8gq"]
 [ext_resource type="PackedScene" uid="uid://cec12ttbm3ty5" path="res://Scenes/UI/counddownUI.tscn" id="22_6wmlg"]
 
-[node name="World" type="Node2D"]
+[node name="Node2D" type="Node2D"]
 
 [node name="WorldMapSprite" type="Sprite2D" parent="."]
 z_index = -1

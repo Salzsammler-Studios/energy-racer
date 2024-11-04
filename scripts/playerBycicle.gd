@@ -35,6 +35,6 @@ func short_angle_dist(from, to):
 func lerp_angle(from, to, weight):
 	return from + short_angle_dist(from, to) * weight
 
-
+#todo: maybe change this. needs to be designed
 func get_reservoir_filling_rate():
 	return acceleration
