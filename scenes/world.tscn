@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://c01xwyre1wrhb"]
+[gd_scene load_steps=10 format=3 uid="uid://c01xwyre1wrhb"]
 
+[ext_resource type="Script" path="res://scenes/debug.gd" id="1_4j8rs"]
 [ext_resource type="Script" path="res://scripts/arduinoHandler.cs" id="8_up8vu"]
 [ext_resource type="PackedScene" uid="uid://cc7cik7oud4yc" path="res://Scenes/playerCar.tscn" id="16_5riqm"]
 [ext_resource type="PackedScene" uid="uid://6n682f01a30b" path="res://Scenes/playerBycicle.tscn" id="16_45rk0"]
@@ -10,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cec12ttbm3ty5" path="res://Scenes/UI/counddownUI.tscn" id="22_6wmlg"]
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_4j8rs")
 
 [node name="WorldMapSprite" type="Sprite2D" parent="."]
 z_index = -1

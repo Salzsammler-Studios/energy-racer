@@ -39,12 +39,23 @@ text = "X/Y HAT GEWONNEN!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label2" type="Label" parent="Container"]
+offset_left = 112.0
+offset_top = 77.0
+offset_right = 482.0
+offset_bottom = 152.0
+theme_override_fonts/font = ExtResource("3_1d2ok")
+theme_override_font_sizes/font_size = 15
+text = "Score: / X hat aufgegeben!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="ResetButton" type="Button" parent="Container"]
 layout_mode = 2
 offset_left = 222.0
-offset_top = 111.0
+offset_top = 140.0
 offset_right = 366.0
-offset_bottom = 190.0
+offset_bottom = 219.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_type_variation = &"FlatButton"
@@ -53,5 +64,15 @@ text = "
 icon = ExtResource("3_pxg33")
 icon_alignment = 1
 expand_icon = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 113.0
+offset_top = 9.0
+offset_right = 483.0
+offset_bottom = 84.0
+theme_override_fonts/font = ExtResource("3_1d2ok")
+text = "X/Y HAT GEWONNEN!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Container/ResetButton" to="." method="_on_reset_button_pressed"]

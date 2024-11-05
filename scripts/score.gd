@@ -11,8 +11,13 @@ var CAR_RESERVOIR_FILL_SCORE = 1
 
 var VICTORY_SCORE: int = 10
 
+var victoryByPoints: bool = true
+
 var fuelLevel: float = 100
 var bycicleVelocity: float = 100
+
+### debug variables ###
+var disableForfeit: bool = false
 
 func add_bike_score():
 	bikeScore += BIKE_RESERVOIR_FILL_SCORE
@@ -28,12 +33,20 @@ func add_car_score():
 		get_tree().change_scene_to_packed(game_over_scene)
 		
 func car_forfeit():
-	Score.winner = 'FAHRRAD'
-	get_tree().change_scene_to_packed(game_over_scene)
+	if disableForfeit == true:
+		pass
+	else:
+		Score.winner = 'FAHRRAD'
+		victoryByPoints = false
+		get_tree().change_scene_to_packed(game_over_scene)
 	
 func bike_forfeit():
-	Score.winner = 'AUTO'
-	get_tree().change_scene_to_packed(game_over_scene)
+	if disableForfeit == true:
+		pass
+	else:
+		Score.winner = 'AUTO'
+		victoryByPoints = false
+		get_tree().change_scene_to_packed(game_over_scene)
 
 func reset_score():
 	winner = 'nobody'
