@@ -12,6 +12,8 @@ public partial class arduinoHandler : Node
 	
 	private float temperatureCounter = 0f;
 	
+
+	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -31,6 +33,7 @@ public partial class arduinoHandler : Node
 		//serialPort.ReadTimeout = 1000; // Set timeout to 100 milliseconds or another appropriate value
 
 		serialPort.Open();
+		
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -64,6 +67,8 @@ public partial class arduinoHandler : Node
 		{
 			serialPort.Write("0");
 			temperatureCounter = 0;
+			var score = GetNode("/root/Score");
+			var result = score.Call("car_forfeit");
 		}
 	}
 

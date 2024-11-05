@@ -26,6 +26,10 @@ func add_car_score():
 	if carScore >= VICTORY_SCORE:
 		winner = 'AUTO'
 		get_tree().change_scene_to_packed(game_over_scene)
+		
+func car_forfeit():
+	Score.winner = 'FAHRRAD'
+	get_tree().change_scene_to_packed(game_over_scene)
 
 func reset_score():
 	winner = 'nobody'
