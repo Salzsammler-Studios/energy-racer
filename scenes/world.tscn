@@ -52,14 +52,14 @@ position = Vector2(1291, 526)
 [node name="PlayerCar" parent="." instance=ExtResource("16_5riqm")]
 z_index = 1
 position = Vector2(-124, -87)
-MAX_SPEED = 300
-MIN_SPEED = 30
-fuelDepletionRate = 1.3
+MAX_SPEED = 260
+MIN_SPEED = 25
+fuelDepletionRate = 1.5
 
 [node name="PlayerBycicle" parent="." instance=ExtResource("16_45rk0")]
 z_index = 1
 position = Vector2(-123, 44)
-speed = 300
+speed = 45
 
 [node name="UIScreen" parent="." instance=ExtResource("20_204xt")]
 
