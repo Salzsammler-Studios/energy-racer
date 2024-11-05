@@ -8,8 +8,11 @@ public partial class arduinoHandler : Node
 	private bool handOnPlate = false;
 	private bool refuelling;
 	private double timer;
-	private double timerReset = 2;
+	private double timerReset = 3; //after how much time in seconds the heat is turned up one step
 	
+	private double gracePeriod;
+	private double gracePeriodReset = 0.3f; //time in seconds the pressure may be 0 before forfeit
+
 	private float temperatureCounter = 0f;
 	
 	private int bikeSpeedMultiplier = 0;
@@ -18,6 +21,7 @@ public partial class arduinoHandler : Node
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		gracePeriod = gracePeriodReset;
 		timer = timerReset;
 		if(serialPort != null)
 		{
@@ -52,7 +56,12 @@ public partial class arduinoHandler : Node
 		}
 		else
 		{
-			handOnPlate = false;
+			gracePeriod -= delta;
+			if (gracePeriod <= 0)
+			{
+				handOnPlate = false;
+				gracePeriod = gracePeriodReset;
+			}
 		}
 
 		if (handOnPlate && refuelling){
