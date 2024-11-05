@@ -48,6 +48,6 @@ func check_for_forfeit(delta):
 	if acceleration <= 0:
 		countdown -= delta
 		if countdown <= 0:
-			print("bike forfeit")
+			Score.bike_forfeit()
 	else:
 		countdown = grace_period

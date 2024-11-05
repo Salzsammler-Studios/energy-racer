@@ -30,6 +30,10 @@ func add_car_score():
 func car_forfeit():
 	Score.winner = 'FAHRRAD'
 	get_tree().change_scene_to_packed(game_over_scene)
+	
+func bike_forfeit():
+	Score.winner = 'AUTO'
+	get_tree().change_scene_to_packed(game_over_scene)
 
 func reset_score():
 	winner = 'nobody'
