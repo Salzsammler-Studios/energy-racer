@@ -12,6 +12,7 @@ public partial class arduinoHandler : Node
 	
 	private float temperatureCounter = 0f;
 	
+	private int bikeSpeedMultiplier = 0;
 
 	
 	// Called when the node enters the scene tree for the first time.
@@ -43,7 +44,8 @@ public partial class arduinoHandler : Node
 		if(!serialPort.IsOpen) return;
 
 		string serialMessage = serialPort.ReadLine();
-		int currentPressure = GetPressure(serialMessage);
+		bikeSpeedMultiplier = GetValue(serialMessage, 1);
+		int currentPressure = GetValue(serialMessage, 0);
 		//GD.Print("Pressure: " + currentPressure);
 		if(currentPressure >= 4){
 			handOnPlate = true;
@@ -67,8 +69,8 @@ public partial class arduinoHandler : Node
 		{
 			serialPort.Write("0");
 			temperatureCounter = 0;
-			var score = GetNode("/root/Score");
-			var result = score.Call("car_forfeit");
+			//var score = GetNode("/root/Score");
+			//var result = score.Call("car_forfeit");
 		}
 	}
 
@@ -78,10 +80,15 @@ public partial class arduinoHandler : Node
 		refuelling = isRefuelling;
 	}
 
-	int GetPressure(string arduinoMessage)
+	public int GetBikeSpeedMultiplier()
+	{
+		return bikeSpeedMultiplier;
+	}
+
+	int GetValue(string arduinoMessage, int index)
 	{
 		string[] temp = arduinoMessage.Split('|');
-		string result = temp[0];
+		string result = temp[index];
 		if (result.Length != 0)
 		{
 			return result.ToInt();

@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://c01xwyre1wrhb"]
+[gd_scene load_steps=9 format=3 uid="uid://c01xwyre1wrhb"]
 
+[ext_resource type="Script" path="res://scripts/arduinoHandler.cs" id="8_up8vu"]
 [ext_resource type="PackedScene" uid="uid://cc7cik7oud4yc" path="res://Scenes/playerCar.tscn" id="16_5riqm"]
 [ext_resource type="PackedScene" uid="uid://6n682f01a30b" path="res://Scenes/playerBycicle.tscn" id="16_45rk0"]
 [ext_resource type="PackedScene" uid="uid://dq5f3vup72hen" path="res://Scenes/reservoir.tscn" id="16_c78ui"]
@@ -63,3 +64,6 @@ speed = 300
 [node name="UIScreen" parent="." instance=ExtResource("20_204xt")]
 
 [node name="CanvasLayer" parent="." instance=ExtResource("22_6wmlg")]
+
+[node name="ArduinoHandler" type="Node" parent="."]
+script = ExtResource("8_up8vu")
