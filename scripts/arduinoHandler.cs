@@ -69,8 +69,8 @@ public partial class arduinoHandler : Node
 		{
 			serialPort.Write("0");
 			temperatureCounter = 0;
-			//var score = GetNode("/root/Score");
-			//var result = score.Call("car_forfeit");
+			var score = GetNode("/root/Score");
+			var result = score.Call("car_forfeit");
 		}
 	}
 

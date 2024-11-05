@@ -7,10 +7,16 @@ var acceleration: int = 1 # velocity based on the cycling speed
 @onready var arduino_handler = $"../ArduinoHandler"
 var angle = 0
 
+var countdown : float = 0
+@export var grace_period : float = 4.0 #time the bike may stand still before forfeit
+
+func _ready():
+	countdown = grace_period
 
 func _physics_process(_delta):
 	acceleration = arduino_handler.GetBikeSpeedMultiplier()
 	print("Speed multiplier of bike: ", acceleration)
+	check_for_forfeit(_delta)
 	var direction: Vector2 = Input.get_vector("left2", "right2", "up2", "down2")
 	velocity = direction * speed * acceleration
 	move_and_slide()
@@ -37,3 +43,11 @@ func lerp_angle(from, to, weight):
 #todo: maybe change this. needs to be designed
 func get_reservoir_filling_rate():
 	return acceleration
+
+func check_for_forfeit(delta):
+	if acceleration <= 0:
+		countdown -= delta
+		if countdown <= 0:
+			print("bike forfeit")
+	else:
+		countdown = grace_period
