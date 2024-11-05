@@ -12,8 +12,6 @@ public partial class arduinoHandler : Node
 	
 	private double gracePeriod;
 	private double gracePeriodReset = 0.3f; //time in seconds the pressure may be 0 before forfeit
-
-	private float temperatureCounter = 0f;
 	
 	private int bikeSpeedMultiplier = 0;
 
@@ -68,7 +66,8 @@ public partial class arduinoHandler : Node
 			timer -= delta;
 			if (timer <= 0){			
 				serialPort.Write("1");
-				temperatureCounter += 1;
+				var uiNode = GetNode("../UIScreen");
+				uiNode.Call("increment_heat_label");
 				//GD.Print("Heating up!");
 				handOnPlate = false;
 				timer = timerReset;
@@ -76,8 +75,7 @@ public partial class arduinoHandler : Node
 		}
 		else if (!handOnPlate)
 		{
-			serialPort.Write("0");
-			temperatureCounter = 0;
+			ResetHeat();
 			var score = GetNode("/root/Score");
 			var result = score.Call("car_forfeit");
 		}
@@ -92,6 +90,11 @@ public partial class arduinoHandler : Node
 	public int GetBikeSpeedMultiplier()
 	{
 		return bikeSpeedMultiplier;
+	}
+	
+	public void ResetHeat()
+	{
+		serialPort.Write("0");
 	}
 
 	int GetValue(string arduinoMessage, int index)

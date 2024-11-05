@@ -9,13 +9,15 @@ extends CanvasLayer
 
 @onready var heatlabel = $PanelContainer/HeatUI/Label
 
+var currentHeat : int = 21
 
 const degreeText = 'ºC'
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	currentHeat = 21
 	carScoreLabel.text = '0/10'
 	bikeScoreLabel.text = '0/10'
-	heatlabel.text = '28'+degreeText
+	heatlabel.text = str(currentHeat)+degreeText
 	fuelProgressBar.value = 0
 	bycicleVelocityUi.value = 0
 
@@ -28,3 +30,6 @@ func _process(_delta):
 	bycicleVelocityUi.value = Score.bycicleVelocity
 	# todo: decide how to increment Heat Label
 
+func increment_heat_label():
+	currentHeat += 1
+	heatlabel.text = str(currentHeat)+degreeText
