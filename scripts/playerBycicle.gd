@@ -1,17 +1,16 @@
 extends CharacterBody2D
 
 @export var speed : int         = 400  # speed in pixels/sec
-var acceleration: float = 1.1 # velocity based on the cycling speed
+var acceleration: int = 1 # velocity based on the cycling speed
 @onready var screen_size = get_viewport_rect().size 
 @onready var animatedSprite = $AnimatedSprite2D
+@onready var arduino_handler = $"../ArduinoHandler"
 var angle = 0
 
 
 func _physics_process(_delta):
-	if Input.is_action_pressed("accellerate"):
-		acceleration = 2
-	else:
-		acceleration = 1
+	acceleration = arduino_handler.GetBikeSpeedMultiplier()
+	print("Speed multiplier of bike: ", acceleration)
 	var direction: Vector2 = Input.get_vector("left2", "right2", "up2", "down2")
 	velocity = direction * speed * acceleration
 	move_and_slide()

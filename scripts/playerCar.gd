@@ -9,7 +9,7 @@ var currentFuelCapacity: float = 100
 @export var isFilling : bool = false
 
 @onready var screen_size = get_viewport_rect().size 
-@onready var arduino_handler = $ArduinoHandler
+@onready var arduino_handler = $"../ArduinoHandler"
 var carScore: int = 0
 
 
