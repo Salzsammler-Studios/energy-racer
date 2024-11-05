@@ -15,8 +15,8 @@ const degreeText = 'ºC'
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	currentHeat = 21
-	carScoreLabel.text = '0/10'
-	bikeScoreLabel.text = '0/10'
+	carScoreLabel.text = '0/' + str(Score.VICTORY_SCORE)
+	bikeScoreLabel.text = '0/' + str(Score.VICTORY_SCORE)
 	heatlabel.text = str(currentHeat)+degreeText
 	fuelProgressBar.value = 0
 	bycicleVelocityUi.value = 0
@@ -24,8 +24,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	carScoreLabel.text = str(Score.carScore) + '/10'
-	bikeScoreLabel.text = str(Score.bikeScore) + '/10'
+	carScoreLabel.text = str(Score.carScore) + '/' + str(Score.VICTORY_SCORE)
+	bikeScoreLabel.text = str(Score.bikeScore) + '/' + str(Score.VICTORY_SCORE)
 	fuelProgressBar.value = Score.fuelLevel
 	bycicleVelocityUi.value = Score.bycicleVelocity
 	# todo: decide how to increment Heat Label

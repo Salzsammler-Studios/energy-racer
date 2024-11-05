@@ -6,10 +6,10 @@ var bikeScore: int = 0
 var carScore: int = 0
 
 var winner : String = 'nobody'
-var BIKE_RESERVOIR_FILL_SCORE = 2
+var BIKE_RESERVOIR_FILL_SCORE = 1
 var CAR_RESERVOIR_FILL_SCORE = 1
 
-var VICTORY_SCORE: int = 10
+var VICTORY_SCORE: int = 15
 
 var victoryByPoints: bool = true
 
