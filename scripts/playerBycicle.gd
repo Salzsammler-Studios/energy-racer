@@ -5,6 +5,7 @@ var acceleration: int = 1 # velocity based on the cycling speed
 @onready var screen_size = get_viewport_rect().size 
 @onready var animatedSprite = $AnimatedSprite2D
 @onready var arduino_handler = $"../ArduinoHandler"
+
 var angle = 0
 
 var countdown : float = 0
@@ -15,7 +16,7 @@ func _ready():
 
 func _physics_process(_delta):
 	acceleration = arduino_handler.GetBikeSpeedMultiplier()
-	print("Speed multiplier of bike: ", acceleration)
+	# print("Speed multiplier of bike: ", acceleration)
 	check_for_forfeit(_delta)
 	var direction: Vector2 = Input.get_vector("left2", "right2", "up2", "down2")
 	velocity = direction * speed * acceleration

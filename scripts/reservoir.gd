@@ -1,10 +1,10 @@
 extends Area2D
 
-@export var MAX_CAPACITY: int       = 100
+@export var MAX_CAPACITY: float       = 100
 var currentCapacity: float    = 0
 var capacityVelocity: float = 0
 var isFilling: bool         = false
-var isFull: bool            = true
+var isFull: bool            = false
 @onready var animation_player = $AnimationPlayer
 @onready var progressBar = $ProgressBar
 
@@ -23,14 +23,15 @@ func _process(_delta):
 				capacityVelocity = bodies[0].get_reservoir_filling_rate()
 			
 		currentCapacity += capacityVelocity
-		clampf(currentCapacity, -MAX_CAPACITY, MAX_CAPACITY)
+		currentCapacity = clampf(currentCapacity, -MAX_CAPACITY, MAX_CAPACITY)
+		
 		if currentCapacity < MAX_CAPACITY and currentCapacity > -MAX_CAPACITY:
 			isFull = false
 			#check if max is reached
-		if currentCapacity >= 100 and !isFull:
+		if currentCapacity >= MAX_CAPACITY and !isFull:
 			isFull = true
 			Score.add_bike_score() #Bike
-		if currentCapacity <= -100 and !isFull:
+		if currentCapacity <= -MAX_CAPACITY and !isFull:
 			Score.add_car_score() #Car
 			isFull = true
 		#update progress bar depending on the current value
