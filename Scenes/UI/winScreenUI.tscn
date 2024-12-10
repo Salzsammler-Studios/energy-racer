@@ -40,6 +40,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="Container"]
+layout_mode = 0
 offset_left = 112.0
 offset_top = 77.0
 offset_right = 482.0
@@ -64,15 +65,5 @@ text = "
 icon = ExtResource("3_pxg33")
 icon_alignment = 1
 expand_icon = true
-
-[node name="Label" type="Label" parent="."]
-offset_left = 113.0
-offset_top = 9.0
-offset_right = 483.0
-offset_bottom = 84.0
-theme_override_fonts/font = ExtResource("3_1d2ok")
-text = "X/Y HAT GEWONNEN!"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [connection signal="pressed" from="Container/ResetButton" to="." method="_on_reset_button_pressed"]

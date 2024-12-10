@@ -8,7 +8,7 @@ public partial class arduinoHandler : Node
 	private bool handOnPlate = false;
 	private bool refuelling;
 	private double timer;
-	private double timerReset = 3; //after how much time in seconds the heat is turned up one step
+	private double timerReset = 2.5f; //after how much time in seconds the heat is turned up one step
 	
 	private double gracePeriod;
 	private double gracePeriodReset = 0.3f; //time in seconds the pressure may be 0 before forfeit
@@ -43,7 +43,10 @@ public partial class arduinoHandler : Node
 	public override void _Process(double delta)
 	{
 		
-		if(!serialPort.IsOpen) return;
+		if(!serialPort.IsOpen){
+			GD.Print("Arduino not connected");
+			return;
+			}
 
 		string serialMessage = serialPort.ReadLine();
 		bikeSpeedMultiplier = GetValue(serialMessage, 1);
@@ -79,6 +82,11 @@ public partial class arduinoHandler : Node
 			var score = GetNode("/root/Score");
 			var result = score.Call("car_forfeit");
 		}
+	}
+	
+	public override void _ExitTree()
+	{
+		serialPort.Close();
 	}
 
 	public void SetRefuelling(bool isRefuelling)

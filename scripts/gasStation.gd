@@ -1,7 +1,7 @@
 extends Area2D
 
 var isFilling = false
-@export var fillRate = 4
+@export var fillRate = 5
 @onready var playerCar = $"../../PlayerCar"
 @onready var animation_player = $AnimationPlayer
 # Called when the node enters the scene tree for the first time.

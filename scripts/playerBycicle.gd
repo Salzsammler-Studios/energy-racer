@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var speed : int         = 400  # speed in pixels/sec
 var acceleration: int = 1 # velocity based on the cycling speed
+@export var MAX_ACCELERATION : int = 5
 @onready var screen_size = get_viewport_rect().size 
 @onready var animatedSprite = $AnimatedSprite2D
 @onready var arduino_handler = $"../ArduinoHandler"
@@ -16,7 +17,7 @@ func _ready():
 
 func _physics_process(_delta):
 	acceleration = arduino_handler.GetBikeSpeedMultiplier()
-	# print("Speed multiplier of bike: ", acceleration)
+	acceleration = clampi(acceleration, 0, MAX_ACCELERATION)
 	check_for_forfeit(_delta)
 	var direction: Vector2 = Input.get_vector("left2", "right2", "up2", "down2")
 	velocity = direction * speed * acceleration
