@@ -1,13 +1,13 @@
 extends CanvasLayer
 
-@onready var carScoreLabel = $PanelContainer3/CarUI/Label
-@onready var bikeScoreLabel = $PanelContainer2/BikeUI/Label
+@onready var carScoreLabel = $Control/BottomContainer/CarUIPanel/CarScorePanel/CarScore
+@onready var bikeScoreLabel = $Control/BottomContainer/BikeUIPanel/BikeScorePanel/BikeScore
 
-@onready var fuelProgressBar = $CarFuelRateUI
-@onready var bycicleVelocityUi = $BycicleVelocityUI
+@onready var fuelProgressBar = $Control/BottomContainer/CarUIPanel/CarFuelRateUI
+@onready var bycicleVelocityUi = $Control/BottomContainer/BikeUIPanel/BikeFuelRateUI
 
 
-@onready var heatlabel = $PanelContainer/HeatUI/Label
+@onready var heatlabel = $Control/TemperaturePanel/HeatUI/Label
 
 var currentHeat : int = 21
 

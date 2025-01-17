@@ -1,49 +1,81 @@
-[gd_scene load_steps=3 format=3 uid="uid://o8x6t3inkoeg"]
+[gd_scene load_steps=6 format=3 uid="uid://o8x6t3inkoeg"]
 
 [ext_resource type="Script" path="res://scripts/gameUI.gd" id="1_ph33r"]
+[ext_resource type="Theme" uid="uid://1bbtrqml2pk7" path="res://Scenes/UI/ui_theme.tres" id="2_1rb8l"]
 [ext_resource type="Texture2D" uid="uid://bjuoc54b5nlso" path="res://assets/UI/HalfCircleProgressBar.png" id="2_2rbyi"]
+[ext_resource type="Theme" uid="uid://c1l4dbc35ej4v" path="res://assets/UI/UITheme.tres" id="2_iuio5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ayw2i"]
 
 [node name="UIScreen" type="CanvasLayer"]
 layer = 2
 script = ExtResource("1_ph33r")
 
-[node name="PanelContainer3" type="PanelContainer" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -227.0
-offset_top = 1035.0
-offset_right = -108.0
-offset_bottom = 1080.0
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+theme = ExtResource("2_1rb8l")
 
-[node name="CarUI" type="GridContainer" parent="PanelContainer3"]
+[node name="TemperaturePanel" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -144.0
+offset_top = 22.0
+offset_right = -25.0
+offset_bottom = 72.0
+grow_horizontal = 0
+
+[node name="HeatUI" type="GridContainer" parent="Control/TemperaturePanel"]
 layout_mode = 2
 columns = 2
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer3/CarUI"]
+[node name="TextureRect" type="TextureRect" parent="Control/TemperaturePanel/HeatUI"]
 layout_mode = 2
 expand_mode = 2
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="PanelContainer3/CarUI"]
+[node name="Label" type="Label" parent="Control/TemperaturePanel/HeatUI"]
 layout_mode = 2
-text = ": 25"
-horizontal_alignment = 1
-vertical_alignment = 1
+text = "28°C"
 
-[node name="CarFuelRateUI" type="TextureProgressBar" parent="."]
+[node name="BottomContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -270.0
-offset_top = -101.0
-offset_right = 130.0
-offset_bottom = 99.0
+offset_left = -302.0
+offset_top = -100.0
+offset_right = 302.0
 grow_horizontal = 2
 grow_vertical = 0
+alignment = 1
+
+[node name="CarUIPanel" type="Panel" parent="Control/BottomContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ayw2i")
+
+[node name="CarFuelRateUI" type="TextureProgressBar" parent="Control/BottomContainer/CarUIPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -50.0
+offset_right = 300.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 value = 50.0
 fill_mode = 4
@@ -52,71 +84,86 @@ texture_progress = ExtResource("2_2rbyi")
 tint_progress = Color(0.207843, 0.443137, 0.623529, 1)
 radial_initial_angle = 180.0
 
-[node name="BycicleVelocityUI" type="TextureProgressBar" parent="."]
+[node name="CarScorePanel" type="Panel" parent="Control/BottomContainer/CarUIPanel"]
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 152.0
-offset_top = -101.0
-offset_right = 552.0
-offset_bottom = 99.0
+offset_left = -43.5
+offset_top = -43.0
+offset_right = 43.5
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("2_iuio5")
+
+[node name="CarScore" type="Label" parent="Control/BottomContainer/CarUIPanel/CarScorePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -16.5
+offset_right = 21.0
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+text = ":24"
+
+[node name="BikeUIPanel" type="Panel" parent="Control/BottomContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ayw2i")
+
+[node name="BikeFuelRateUI" type="TextureProgressBar" parent="Control/BottomContainer/BikeUIPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -50.0
+offset_right = 300.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.5, 0.5)
-max_value = 5.0
-value = 5.0
+value = 50.0
 fill_mode = 4
 texture_under = ExtResource("2_2rbyi")
 texture_progress = ExtResource("2_2rbyi")
-tint_progress = Color(0.882353, 0.227451, 0.227451, 1)
+tint_progress = Color(0.776471, 0, 0.160784, 1)
 radial_initial_angle = 180.0
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -144.0
-offset_top = 22.0
-offset_right = -25.0
-offset_bottom = 67.0
-grow_horizontal = 0
-
-[node name="HeatUI" type="GridContainer" parent="PanelContainer"]
-layout_mode = 2
-columns = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/HeatUI"]
-layout_mode = 2
-expand_mode = 2
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="PanelContainer/HeatUI"]
-layout_mode = 2
-text = "28°C"
-
-[node name="PanelContainer2" type="PanelContainer" parent="."]
+[node name="BikeScorePanel" type="Panel" parent="Control/BottomContainer/BikeUIPanel"]
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 193.0
-offset_top = -47.0
-offset_right = 312.0
-offset_bottom = -2.0
+offset_left = -43.5
+offset_top = -43.0
+offset_right = 43.5
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("2_iuio5")
 
-[node name="BikeUI" type="GridContainer" parent="PanelContainer2"]
-layout_mode = 2
-columns = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer2/BikeUI"]
-layout_mode = 2
-expand_mode = 2
-
-[node name="Label" type="Label" parent="PanelContainer2/BikeUI"]
-layout_mode = 2
-text = ": 25"
+[node name="BikeScore" type="Label" parent="Control/BottomContainer/BikeUIPanel/BikeScorePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -16.5
+offset_right = 21.0
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+text = ":24"
