@@ -1,53 +1,57 @@
 [gd_scene load_steps=6 format=3 uid="uid://dvmu0syiltsxj"]
 
 [ext_resource type="Script" path="res://scripts/mainMenu.gd" id="1_a8njr"]
-[ext_resource type="Texture2D" uid="uid://sx3plwfvio4h" path="res://assets/UI/mainMenuBackgroundImage.jpg" id="2_gclkx"]
-[ext_resource type="FontFile" uid="uid://b68t3yetukquy" path="res://assets/fonts/JosefinSans-Bold.ttf" id="3_urg6t"]
-[ext_resource type="AudioStream" uid="uid://d10p0bai2sih5" path="res://assets/startupMusic.mp3" id="3_wb07g"]
-[ext_resource type="Texture2D" uid="uid://cjpk5mhclacm6" path="res://assets/UI/Prinbles_GUI_Asset_Silent (1.0.0)/asset/png/Buttons/Rect-Medium/PlayIcon/Default.png" id="4_uai58"]
+[ext_resource type="Theme" uid="uid://1bbtrqml2pk7" path="res://Scenes/UI/ui_theme.tres" id="3_mbogx"]
+[ext_resource type="FontFile" uid="uid://br3udaiejvj2y" path="res://assets/fonts/RACER___.TTF" id="3_u3l0g"]
+[ext_resource type="Texture2D" uid="uid://bjx2ihafwqxqu" path="res://assets/UI/Prinbles_GUI_Asset_Silent (1.0.0)/asset/png@3x/Buttons/Rect-Medium/PlayIcon/Default@3x.png" id="4_s32e6"]
+[ext_resource type="Texture2D" uid="uid://baqd315u54q2b" path="res://assets/UI/Prinbles_GUI_Asset_Silent (1.0.0)/asset/png@3x/Buttons/Rect-Medium/PlayIcon/Hover@3x.png" id="5_ep85m"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_a8njr")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(576, 324)
-scale = Vector2(0.7175, 0.653924)
-texture = ExtResource("2_gclkx")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+autoplay = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_mbogx")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -352.0
-offset_top = 59.0
-offset_right = 376.0
-offset_bottom = 196.0
+offset_left = -509.0
+offset_top = 150.0
+offset_right = 509.0
+offset_bottom = 262.0
 grow_horizontal = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0.988235, 1)
-theme_override_constants/shadow_offset_x = 18
-theme_override_fonts/normal_font = ExtResource("3_urg6t")
-theme_override_font_sizes/normal_font_size = 101
+theme_override_fonts/normal_font = ExtResource("3_u3l0g")
+theme_override_font_sizes/normal_font_size = 130
 text = "Energy Racer"
+fit_content = true
+autowrap_mode = 0
 
-[node name="Button" type="Button" parent="."]
+[node name="TextureButton" type="TextureButton" parent="Control"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -46.5
-offset_top = -29.0
-offset_right = 46.5
-offset_bottom = 29.0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 36
-icon = ExtResource("4_uai58")
-flat = true
+texture_normal = ExtResource("4_s32e6")
+texture_pressed = ExtResource("5_ep85m")
+texture_hover = ExtResource("5_ep85m")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_wb07g")
-autoplay = true
-
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/TextureButton" to="." method="_on_button_pressed"]
