@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b7oiym3jw00u6"
+path="res://.godot/imported/Zipp 2.wav-9b744d03ca02308c715e08acf14fbead.sample"
+
+[deps]
+
+source_file="res://assets/audio/data/Zipp 2.wav"
+dest_files=["res://.godot/imported/Zipp 2.wav-9b744d03ca02308c715e08acf14fbead.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
