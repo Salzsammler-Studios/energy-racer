@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://c01xwyre1wrhb"]
+[gd_scene load_steps=14 format=3 uid="uid://c01xwyre1wrhb"]
 
 [ext_resource type="Script" path="res://scenes/debug.gd" id="1_4j8rs"]
 [ext_resource type="AudioStream" uid="uid://bscr1idpklgdk" path="res://assets/audio/data/AnOrangePlanet(loop).mp3" id="2_l70dr"]
 [ext_resource type="AudioStream" path="uid://dbl23ck4cqctv" id="4_3ly7d"]
 [ext_resource type="AudioStream" path="uid://c1n215lu0c4iq" id="7_nd0s7"]
 [ext_resource type="Script" path="res://scripts/arduinoHandler.cs" id="8_up8vu"]
+[ext_resource type="AudioStream" path="uid://cqc0uo2povmhd" id="12_1ifir"]
 [ext_resource type="PackedScene" uid="uid://cc7cik7oud4yc" path="res://Scenes/playerCar.tscn" id="16_5riqm"]
 [ext_resource type="PackedScene" uid="uid://6n682f01a30b" path="res://Scenes/playerBycicle.tscn" id="16_45rk0"]
 [ext_resource type="PackedScene" uid="uid://dq5f3vup72hen" path="res://Scenes/reservoir.tscn" id="16_c78ui"]
@@ -19,6 +20,7 @@ debugMode = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_l70dr")
+volume_db = 4.0
 autoplay = true
 
 [node name="WorldMapSprite" type="Sprite2D" parent="."]
@@ -80,6 +82,9 @@ speed = 30
 [node name="UIScreen" parent="." instance=ExtResource("20_204xt")]
 
 [node name="CanvasLayer" parent="." instance=ExtResource("22_6wmlg")]
+
+[node name="CountdownAudio" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("12_1ifir")
 
 [node name="ArduinoHandler" type="Node" parent="."]
 script = ExtResource("8_up8vu")
