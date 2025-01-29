@@ -31,7 +31,7 @@ public partial class arduinoHandler : Node
 		serialPort = new SerialPort();
 		serialPort.DtrEnable = true;
 		serialPort.RtsEnable = true;
-		serialPort.PortName = "COM6"; //check if this is the case, otherwise change in device manager!
+		serialPort.PortName = "COM3"; //check if this is the case, otherwise change in device manager!
 		serialPort.BaudRate = 9600; //needs to be the same in Arduino Code
 		//serialPort.ReadTimeout = 1000; // Set timeout to 100 milliseconds or another appropriate value
 
