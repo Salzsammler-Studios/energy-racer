@@ -2,6 +2,8 @@ extends CanvasLayer
 
 
 var game_scene = preload("res://Scenes/world.tscn")
+var credit_scene = preload("res://Scenes/credits.tscn")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,7 +20,7 @@ func _on_button_start_pressed():
 
 
 func _on_button_credits_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene_to_packed(credit_scene)
 
 
 func _on_button_quit_pressed():

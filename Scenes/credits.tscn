@@ -1,0 +1,107 @@
+[gd_scene load_steps=5 format=3 uid="uid://ka2yippwbua0"]
+
+[ext_resource type="Theme" uid="uid://1bbtrqml2pk7" path="res://Scenes/UI/ui_theme.tres" id="1_ceat7"]
+[ext_resource type="Script" path="res://scripts/credits.gd" id="1_wmfg2"]
+[ext_resource type="Texture2D" uid="uid://b8xt2vio0yg6e" path="res://assets/bg_main_2.jpeg" id="2_qby3t"]
+[ext_resource type="FontFile" uid="uid://br3udaiejvj2y" path="res://assets/fonts/RACER___.TTF" id="3_ijyuy"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_wmfg2")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ceat7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(961, 540)
+scale = Vector2(1.08, 1.08)
+texture = ExtResource("2_qby3t")
+
+[node name="Control" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -550.0
+offset_top = -495.0
+offset_right = 550.0
+offset_bottom = 495.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Control/Panel"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -475.0
+offset_top = 27.0
+offset_right = 475.0
+offset_bottom = 227.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0.196078, 0.431373, 0.564706, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/normal_font = ExtResource("3_ijyuy")
+theme_override_font_sizes/normal_font_size = 165
+text = "Credits"
+fit_content = true
+autowrap_mode = 2
+text_direction = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Control"]
+custom_minimum_size = Vector2(350, 80)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -175.0
+offset_top = -109.0
+offset_right = 175.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ButtonMain" type="Button" parent="Control/Control/VBoxContainer"]
+custom_minimum_size = Vector2(350, 80)
+layout_mode = 2
+text = "Menü"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -200.0
+offset_right = 250.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.2, 0.345098, 0.47451, 1)
+theme_override_font_sizes/normal_font_size = 70
+bbcode_enabled = true
+text = "[center]Nadine Jachmann
+Nic Schilling
+Ruben Schäfer"
+
+[connection signal="pressed" from="Control/Control/VBoxContainer/ButtonMain" to="." method="_on_button_main_pressed"]
