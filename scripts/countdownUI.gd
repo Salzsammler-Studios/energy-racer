@@ -2,6 +2,8 @@ extends CanvasLayer
 
 @onready var countdown_label = $RichTextLabel
 
+@onready var countdown_sound = $"../UIScreen/CountdownAudio"
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var countdown_time : int = 3
@@ -15,6 +17,7 @@ func _ready():
 		await get_tree().create_timer(1).timeout
 		countdown_time -= 1
 		countdown_label.text = str(countdown_time)
+		countdown_sound.play()
 	countdown_label.text = "Go!"
 	await get_tree().create_timer(1).timeout
 	get_tree().paused = false

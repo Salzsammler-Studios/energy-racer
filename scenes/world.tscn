@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://c01xwyre1wrhb"]
+[gd_scene load_steps=12 format=3 uid="uid://c01xwyre1wrhb"]
 
 [ext_resource type="Script" path="res://scenes/debug.gd" id="1_4j8rs"]
+[ext_resource type="AudioStream" uid="uid://dt3vjeud6erc4" path="res://assets/Audio/Beep 02.wav" id="8_bjof2"]
 [ext_resource type="Script" path="res://scripts/arduinoHandler.cs" id="8_up8vu"]
 [ext_resource type="AudioStream" uid="uid://b4ie3vtun35iy" path="res://assets/Audio/AnOrangePlanet(loop).mp3" id="10_htlvo"]
 [ext_resource type="PackedScene" uid="uid://cc7cik7oud4yc" path="res://Scenes/playerCar.tscn" id="16_5riqm"]
@@ -65,6 +66,9 @@ position = Vector2(-123, 44)
 speed = 30
 
 [node name="UIScreen" parent="." instance=ExtResource("20_204xt")]
+
+[node name="CountdownAudio" type="AudioStreamPlayer" parent="UIScreen"]
+stream = ExtResource("8_bjof2")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("22_6wmlg")]
 
