@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cec12ttbm3ty5"]
 
 [ext_resource type="Script" path="res://scripts/countdownUI.gd" id="1_j20jh"]
-[ext_resource type="FontFile" uid="uid://b68t3yetukquy" path="res://assets/fonts/JosefinSans-Bold.ttf" id="2_3xqrx"]
+[ext_resource type="Theme" uid="uid://1bbtrqml2pk7" path="res://Scenes/UI/ui_theme.tres" id="2_3t00q"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_j20jh")
@@ -18,7 +18,7 @@ offset_right = 38.5
 offset_bottom = 56.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/normal_font = ExtResource("2_3xqrx")
-theme_override_font_sizes/normal_font_size = 128
+theme = ExtResource("2_3t00q")
+theme_override_font_sizes/normal_font_size = 150
 text = "3"
 metadata/_edit_use_anchors_ = true

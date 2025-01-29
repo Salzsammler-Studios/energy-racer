@@ -35,14 +35,12 @@ grow_horizontal = 0
 layout_mode = 2
 columns = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control/TemperaturePanel/HeatUI"]
-layout_mode = 2
-expand_mode = 2
-stretch_mode = 5
-
 [node name="Label" type="Label" parent="Control/TemperaturePanel/HeatUI"]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "28°C"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="BottomContainer" type="HBoxContainer" parent="Control"]
 layout_mode = 1

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/winScreenUI.gd" id="1_ont7d"]
 [ext_resource type="Texture2D" uid="uid://bqlxr620w7gup" path="res://assets/UI/Prinbles_GUI_Asset_Silent (1.0.0)/asset/png/Panel/Window/Medium.png" id="2_powwg"]
-[ext_resource type="FontFile" uid="uid://b68t3yetukquy" path="res://assets/fonts/JosefinSans-Bold.ttf" id="3_1d2ok"]
+[ext_resource type="Theme" uid="uid://1bbtrqml2pk7" path="res://Scenes/UI/ui_theme.tres" id="2_yvvli"]
 [ext_resource type="Texture2D" uid="uid://cjpk5mhclacm6" path="res://assets/UI/Prinbles_GUI_Asset_Silent (1.0.0)/asset/png/Buttons/Rect-Medium/PlayIcon/Default.png" id="3_pxg33"]
 
 [node name="WinScreen" type="CanvasLayer"]
@@ -10,53 +10,81 @@ script = ExtResource("1_ont7d")
 
 [node name="Container" type="Control" parent="."]
 layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_yvvli")
+
+[node name="Control" type="Control" parent="Container"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -310.0
-offset_top = -145.0
-offset_right = -310.0
-offset_bottom = -145.0
+offset_left = -376.5
+offset_top = -225.0
+offset_right = 376.5
+offset_bottom = 225.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Sprite2D" type="TextureRect" parent="Container"]
-layout_mode = 2
-offset_right = 608.0
-offset_bottom = 248.0
+[node name="Sprite2D" type="TextureRect" parent="Container/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_powwg")
 
-[node name="Label" type="Label" parent="Container"]
-layout_mode = 2
-offset_left = 113.0
-offset_top = 9.0
-offset_right = 483.0
-offset_bottom = 84.0
-theme_override_fonts/font = ExtResource("3_1d2ok")
+[node name="Label" type="Label" parent="Container/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -211.0
+offset_top = 30.0
+offset_right = 212.0
+offset_bottom = 105.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 70
 text = "X/Y HAT GEWONNEN!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="Container"]
-layout_mode = 0
-offset_left = 112.0
-offset_top = 77.0
-offset_right = 482.0
-offset_bottom = 152.0
-theme_override_fonts/font = ExtResource("3_1d2ok")
-theme_override_font_sizes/font_size = 15
+[node name="Label2" type="Label" parent="Container/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -264.0
+offset_top = -52.0
+offset_right = 265.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Score: / X hat aufgegeben!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ResetButton" type="Button" parent="Container"]
-layout_mode = 2
-offset_left = 222.0
-offset_top = 140.0
-offset_right = 366.0
-offset_bottom = 219.0
+[node name="ResetButton" type="Button" parent="Container/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -183.0
+offset_right = 125.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_type_variation = &"FlatButton"
@@ -66,4 +94,4 @@ icon = ExtResource("3_pxg33")
 icon_alignment = 1
 expand_icon = true
 
-[connection signal="pressed" from="Container/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="Container/Control/ResetButton" to="." method="_on_reset_button_pressed"]

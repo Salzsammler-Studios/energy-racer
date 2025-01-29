@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvmu0syiltsxj"]
+[gd_scene load_steps=5 format=3 uid="uid://dvmu0syiltsxj"]
 
 [ext_resource type="Script" path="res://scripts/mainMenu.gd" id="1_a8njr"]
+[ext_resource type="Texture2D" uid="uid://b8xt2vio0yg6e" path="res://assets/bg_main_2.jpeg" id="3_6i4wa"]
 [ext_resource type="Theme" uid="uid://1bbtrqml2pk7" path="res://Scenes/UI/ui_theme.tres" id="3_mbogx"]
 [ext_resource type="FontFile" uid="uid://br3udaiejvj2y" path="res://assets/fonts/RACER___.TTF" id="3_u3l0g"]
-[ext_resource type="Texture2D" uid="uid://bjx2ihafwqxqu" path="res://assets/UI/Prinbles_GUI_Asset_Silent (1.0.0)/asset/png@3x/Buttons/Rect-Medium/PlayIcon/Default@3x.png" id="4_s32e6"]
-[ext_resource type="Texture2D" uid="uid://baqd315u54q2b" path="res://assets/UI/Prinbles_GUI_Asset_Silent (1.0.0)/asset/png@3x/Buttons/Rect-Medium/PlayIcon/Hover@3x.png" id="5_ep85m"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_a8njr")
@@ -21,37 +20,39 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_mbogx")
 
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(961, 540)
+scale = Vector2(1.08, 1.08)
+texture = ExtResource("3_6i4wa")
+
 [node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+clip_contents = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -509.0
-offset_top = 150.0
-offset_right = 509.0
-offset_bottom = 262.0
+offset_left = -836.0
+offset_top = 43.0
+offset_right = 836.0
+offset_bottom = 227.0
 grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0.196078, 0.431373, 0.564706, 1)
+theme_override_constants/outline_size = 25
 theme_override_fonts/normal_font = ExtResource("3_u3l0g")
-theme_override_font_sizes/normal_font_size = 130
+theme_override_font_sizes/normal_font_size = 165
 text = "Energy Racer"
-fit_content = true
 autowrap_mode = 0
 
-[node name="TextureButton" type="TextureButton" parent="Control"]
+[node name="Panel" type="Panel" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -400.0
+offset_top = -300.0
+offset_right = 400.0
+offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("4_s32e6")
-texture_pressed = ExtResource("5_ep85m")
-texture_hover = ExtResource("5_ep85m")
-
-[connection signal="pressed" from="Control/TextureButton" to="." method="_on_button_pressed"]
