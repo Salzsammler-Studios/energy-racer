@@ -12,6 +12,9 @@ var currentFuelCapacity: float = 100
 @onready var arduino_handler = $"../ArduinoHandler"
 var carScore: int = 0
 
+@onready var engine_sound = $CarAudio
+var is_playing = false
+
 
 func _process(_delta):
 	arduino_handler.SetRefuelling(isFilling)
@@ -33,6 +36,19 @@ func _physics_process(delta):
 	#Wrap movement around the screen so that if they leave the screen they appear at the other side
 	position.x = wrapf(position.x, -screen_size.x/1.25, screen_size.x/1.25)
 	position.y = wrapf(position.y, -screen_size.y/1.25, screen_size.y/1.25)
+	
+		#Audio: If car is moving, sound is playing
+	if velocity.length() > 0.1:  # Threshold to detect motion
+		if !is_playing:
+			engine_sound.play()
+			is_playing = true
+	else:
+		engine_sound.stop()
+		is_playing = false
+	
+	#Lower gas tank, lower volume
+	engine_sound.volume_db = ((currentFuelCapacity - 100) / 10) - 10
+		
 
 func short_angle_dist(from, to):
 	var max_angle: float  = PI * 2
