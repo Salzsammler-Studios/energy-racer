@@ -9,3 +9,8 @@ func _ready():
 	else:
 		Score.disableForfeit = true
 		# Add more conditions here if necessary. Stick to the formula.
+
+
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().quit()
