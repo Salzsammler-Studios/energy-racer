@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://c01xwyre1wrhb"]
+[gd_scene load_steps=13 format=3 uid="uid://c01xwyre1wrhb"]
 
 [ext_resource type="Script" path="res://scenes/debug.gd" id="1_4j8rs"]
+[ext_resource type="AudioStream" uid="uid://yskjep4fy5m2" path="res://assets/Audio/zischUp.wav" id="4_s4t6j"]
 [ext_resource type="AudioStream" uid="uid://dt3vjeud6erc4" path="res://assets/Audio/Beep 02.wav" id="8_bjof2"]
 [ext_resource type="Script" path="res://scripts/arduinoHandler.cs" id="8_up8vu"]
 [ext_resource type="AudioStream" uid="uid://b4ie3vtun35iy" path="res://assets/Audio/AnOrangePlanet(loop).mp3" id="10_htlvo"]
@@ -45,6 +46,9 @@ position = Vector2(895, -523)
 
 [node name="Reservoir6" parent="Reservoirs" instance=ExtResource("16_c78ui")]
 position = Vector2(968, -43)
+
+[node name="FillReservoireAudio" type="AudioStreamPlayer" parent="Reservoirs"]
+stream = ExtResource("4_s4t6j")
 
 [node name="GasStations" type="Node2D" parent="."]
 
