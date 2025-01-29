@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scenes/debug.gd" id="1_4j8rs"]
 [ext_resource type="AudioStream" uid="uid://yskjep4fy5m2" path="res://assets/Audio/zischUp.wav" id="4_s4t6j"]
 [ext_resource type="AudioStream" uid="uid://phtrl7yqlpen" path="res://assets/Audio/Gears.wav" id="7_3i45d"]
-[ext_resource type="AudioStream" uid="uid://dt3vjeud6erc4" path="res://assets/Audio/Beep 02.wav" id="8_bjof2"]
 [ext_resource type="Script" path="res://scripts/arduinoHandler.cs" id="8_up8vu"]
+[ext_resource type="AudioStream" uid="uid://ch4lp6ikevh0a" path="res://assets/Audio/Beep 03.wav" id="10_0vvjp"]
 [ext_resource type="AudioStream" uid="uid://b4ie3vtun35iy" path="res://assets/Audio/AnOrangePlanet(loop).mp3" id="10_htlvo"]
 [ext_resource type="PackedScene" uid="uid://cc7cik7oud4yc" path="res://Scenes/playerCar.tscn" id="16_5riqm"]
 [ext_resource type="PackedScene" uid="uid://6n682f01a30b" path="res://Scenes/playerBycicle.tscn" id="16_45rk0"]
@@ -76,7 +76,7 @@ speed = 30
 [node name="UIScreen" parent="." instance=ExtResource("20_204xt")]
 
 [node name="CountdownAudio" type="AudioStreamPlayer" parent="UIScreen"]
-stream = ExtResource("8_bjof2")
+stream = ExtResource("10_0vvjp")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("22_6wmlg")]
 
@@ -85,5 +85,5 @@ script = ExtResource("8_up8vu")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_htlvo")
-volume_db = -14.054
+volume_db = -4.685
 autoplay = true

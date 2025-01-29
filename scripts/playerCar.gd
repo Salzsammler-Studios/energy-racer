@@ -47,7 +47,7 @@ func _physics_process(delta):
 		is_playing = false
 	
 	#Lower gas tank, lower volume
-	engine_sound.volume_db = ((currentFuelCapacity - 100) / 10) - 5
+	engine_sound.volume_db = ((currentFuelCapacity - 100) / 10) - 10
 		
 
 func short_angle_dist(from, to):
