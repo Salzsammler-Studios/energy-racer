@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://c01xwyre1wrhb"]
+[gd_scene load_steps=11 format=3 uid="uid://c01xwyre1wrhb"]
 
 [ext_resource type="Script" path="res://scenes/debug.gd" id="1_4j8rs"]
 [ext_resource type="Script" path="res://scripts/arduinoHandler.cs" id="8_up8vu"]
+[ext_resource type="AudioStream" uid="uid://b4ie3vtun35iy" path="res://assets/Audio/AnOrangePlanet(loop).mp3" id="10_htlvo"]
 [ext_resource type="PackedScene" uid="uid://cc7cik7oud4yc" path="res://Scenes/playerCar.tscn" id="16_5riqm"]
 [ext_resource type="PackedScene" uid="uid://6n682f01a30b" path="res://Scenes/playerBycicle.tscn" id="16_45rk0"]
 [ext_resource type="PackedScene" uid="uid://dq5f3vup72hen" path="res://Scenes/reservoir.tscn" id="16_c78ui"]
@@ -69,3 +70,8 @@ speed = 30
 
 [node name="ArduinoHandler" type="Node" parent="."]
 script = ExtResource("8_up8vu")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_htlvo")
+volume_db = -14.054
+autoplay = true
