@@ -13,6 +13,13 @@ func _process(delta):
 	pass
 
 
-
-func _on_button_pressed():
+func _on_button_start_pressed():
 	get_tree().change_scene_to_packed(game_scene)
+
+
+func _on_button_credits_pressed():
+	pass # Replace with function body.
+
+
+func _on_button_quit_pressed():
+	get_tree().quit()
