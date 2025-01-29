@@ -8,9 +8,8 @@ var isFull: bool            = false
 @onready var animation_player = $AnimationPlayer
 @onready var progressBar = $ProgressBar
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
+@onready var fillSound = $"../FillReservoireAudio"
+var sound_played: bool  	= false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -46,8 +45,12 @@ func _process(_delta):
 func _on_body_entered(body):
 	if body.name == "PlayerCar" or body.name == "PlayerBycicle":
 		isFilling = !isFilling
+		if !sound_played && !fillSound.playing: # Play fill sound
+			fillSound.play()
+			sound_played = true
 
 func _on_body_exited(body):
 	if body.name == "PlayerCar" or body.name == "PlayerBycicle":
 		isFilling = !isFilling
+		sound_played = false  # Reset the flag when the body exits
 
