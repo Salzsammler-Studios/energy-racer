@@ -83,7 +83,7 @@ stream = ExtResource("10_0vvjp")
 [node name="ArduinoHandler" type="Node" parent="."]
 script = ExtResource("8_up8vu")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_htlvo")
 volume_db = -4.685
 autoplay = true
