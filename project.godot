@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Score="*res://scripts/score.gd"
+DebugMenu="*res://addons/debug_menu/debug_menu.tscn"
 
 [display]
 
@@ -28,6 +29,10 @@ window/stretch/mode="viewport"
 [dotnet]
 
 project/assembly_name="Energy-racer"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/debug_menu/plugin.cfg")
 
 [gui]
 
