@@ -499,6 +499,7 @@ radius = 28.0
 height = 96.0
 
 [node name="PlayerBycicle" type="CharacterBody2D"]
+motion_mode = 1
 script = ExtResource("1_svfr2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
