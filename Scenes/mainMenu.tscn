@@ -94,7 +94,6 @@ focus_neighbor_top = NodePath("../ButtonQuit")
 focus_neighbor_bottom = NodePath("../ButtonCredits")
 focus_next = NodePath("../ButtonCredits")
 focus_previous = NodePath("../ButtonQuit")
-theme_override_colors/font_focus_color = Color(1, 0.407843, 0.333333, 1)
 text = "Start"
 
 [node name="ButtonCredits" type="Button" parent="Control/Control/VBoxContainer"]
@@ -104,7 +103,6 @@ focus_neighbor_top = NodePath("../ButtonStart")
 focus_neighbor_bottom = NodePath("../ButtonQuit")
 focus_next = NodePath("../ButtonQuit")
 focus_previous = NodePath("../ButtonStart")
-theme_override_colors/font_focus_color = Color(1, 0.407843, 0.333333, 1)
 text = "Credits"
 
 [node name="ButtonQuit" type="Button" parent="Control/Control/VBoxContainer"]
@@ -114,7 +112,6 @@ focus_neighbor_top = NodePath("../ButtonCredits")
 focus_neighbor_bottom = NodePath("../ButtonStart")
 focus_next = NodePath("../ButtonStart")
 focus_previous = NodePath("../ButtonCredits")
-theme_override_colors/font_focus_color = Color(1, 0.407843, 0.333333, 1)
 text = "Ende"
 
 [connection signal="pressed" from="Control/Control/VBoxContainer/ButtonStart" to="." method="_on_button_start_pressed"]

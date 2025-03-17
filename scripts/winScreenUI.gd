@@ -5,11 +5,11 @@ extends CanvasLayer
 var gameScene = preload("res://Scenes/world.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	winScreenLabel.text = Score.winner+' HAT GEWONNEN'
+	winScreenLabel.text = '[center]' + Score.winner+' HAT GEWONNEN'
 	if Score.victoryByPoints == true:
-		winConditionLabel.text = 'Auto: '+str(Score.carScore)+'    Fahrrad: '+str(Score.bikeScore)
+		winConditionLabel.text = '[center] Auto: '+str(Score.carScore)+'    Fahrrad: '+str(Score.bikeScore)
 	else:
-		winConditionLabel.text = 'Gegner hat aufgegeben'
+		winConditionLabel.text = '[center] Gegner hat aufgegeben'
 		pass
 	playAgainButton.grab_focus()
 	

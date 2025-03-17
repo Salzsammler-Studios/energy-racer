@@ -101,17 +101,19 @@ grow_vertical = 0
 [node name="ButtonReset" type="Button" parent="Control/Control/VBoxContainer"]
 custom_minimum_size = Vector2(40, 80)
 layout_mode = 2
+focus_neighbor_top = NodePath("../ButtonQuit")
 focus_neighbor_bottom = NodePath("../ButtonQuit")
 focus_next = NodePath("../ButtonQuit")
-theme_override_colors/font_focus_color = Color(1, 0.407843, 0.333333, 1)
+focus_previous = NodePath("../ButtonQuit")
 text = "Nochmal"
 
 [node name="ButtonQuit" type="Button" parent="Control/Control/VBoxContainer"]
 custom_minimum_size = Vector2(350, 80)
 layout_mode = 2
 focus_neighbor_top = NodePath("../ButtonReset")
+focus_neighbor_bottom = NodePath("../ButtonReset")
 focus_next = NodePath("../ButtonReset")
-theme_override_colors/font_focus_color = Color(1, 0.407843, 0.333333, 1)
+focus_previous = NodePath("../ButtonReset")
 text = "Ende"
 
 [connection signal="pressed" from="Control/Control/VBoxContainer/ButtonReset" to="." method="_on_reset_button_pressed"]

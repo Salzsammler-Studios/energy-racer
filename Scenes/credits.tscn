@@ -35,6 +35,7 @@ offset_right = 550.0
 offset_bottom = 495.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_ceat7")
 
 [node name="Panel" type="Panel" parent="Control/Control"]
 layout_mode = 1
