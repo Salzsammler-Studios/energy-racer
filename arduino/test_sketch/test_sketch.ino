@@ -6,7 +6,7 @@ int val;
 // Heat Plate variables
 int pressure = 0;
 int temperature = 1; //this is not in celsius, but I'll call it temperature anyway
-int temperatureRise = 30; //same
+int temperatureRise = 40; //same
 
 //Bike variables
 volatile long temp = 0;
