@@ -27,7 +27,8 @@ func _process(_delta):
 	carScoreLabel.text = str(Score.carScore) + '/' + str(Score.VICTORY_SCORE)
 	bikeScoreLabel.text = str(Score.bikeScore) + '/' + str(Score.VICTORY_SCORE)
 	fuelProgressBar.value = Score.fuelLevel
-	bycicleVelocityUi.value = Score.bycicleVelocity
+	# increment by 20 since this value needs to be transformed from 0 to 5 to 0 to 100
+	bycicleVelocityUi.value = Score.bycicleVelocity * 20
 	# todo: decide how to increment Heat Label
 
 func increment_heat_label():
