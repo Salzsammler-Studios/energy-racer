@@ -54,6 +54,9 @@ func reset_score():
 	carScore = 0
 
 func update_fuel_level(value: float):
+	if value <= 5 :
+		winner = 'FAHRRAD'
+		get_tree().change_scene_to_packed(game_over_scene)
 	fuelLevel = value
 
 func update_bycicle_velocity(value: float):
