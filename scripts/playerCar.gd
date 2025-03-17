@@ -7,6 +7,7 @@ const MAX_FUEL: int = 100
 var currentFuelCapacity: float = 100
 @export var fuelDepletionRate : float          = 1 # fuel depletion in sec
 @export var isFilling : bool = false
+@export var fixed_reservoire_filling_rate = -1
 
 @onready var screen_size = get_viewport_rect().size 
 @onready var arduino_handler = $"../ArduinoHandler"
@@ -59,7 +60,10 @@ func lerp_angle(from, to, weight):
 	return from + short_angle_dist(from, to) * weight
 
 func get_reservoir_filling_rate():
-	return minf((currentFuelCapacity / MAX_FUEL * -1),-0.1)
+	# Alternative rate, if reservoire filling rate should be based on current car fuel
+	var rate_based_on_fuel = minf((currentFuelCapacity / MAX_FUEL * -1),-0.1)
+	
+	return fixed_reservoire_filling_rate
 
 func fill_gas_tank(amount: float):
 	currentFuelCapacity += amount
