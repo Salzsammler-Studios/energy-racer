@@ -36,7 +36,7 @@ position = Vector2(-1032, -458)
 position = Vector2(-695, 388)
 
 [node name="Reservoir3" parent="Reservoirs" instance=ExtResource("16_c78ui")]
-position = Vector2(194, 318)
+position = Vector2(182, 318)
 
 [node name="Reservoir4" parent="Reservoirs" instance=ExtResource("16_c78ui")]
 position = Vector2(-10, -401)

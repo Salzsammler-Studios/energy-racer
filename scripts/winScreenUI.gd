@@ -11,6 +11,7 @@ func _ready():
 	else:
 		winConditionLabel.text = 'Gegner hat aufgegeben'
 		pass
+	playAgainButton.grab_focus()
 	
 func _on_reset_button_pressed():
 	Score.reset_score()
