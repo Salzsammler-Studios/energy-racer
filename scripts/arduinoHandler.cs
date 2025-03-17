@@ -100,6 +100,11 @@ public partial class arduinoHandler : Node
 		return bikeSpeedMultiplier;
 	}
 	
+	public bool GetHandOnPlate()
+	{
+		return handOnPlate;
+	}
+	
 	public void ResetHeat()
 	{
 		serialPort.Write("0");
