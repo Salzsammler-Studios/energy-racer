@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://o8x6t3inkoeg"]
+[gd_scene load_steps=8 format=3 uid="uid://o8x6t3inkoeg"]
 
 [ext_resource type="Script" path="res://scripts/gameUI.gd" id="1_ph33r"]
 [ext_resource type="Theme" uid="uid://1bbtrqml2pk7" path="res://Scenes/UI/ui_theme.tres" id="2_1rb8l"]
 [ext_resource type="Texture2D" uid="uid://bjuoc54b5nlso" path="res://assets/UI/HalfCircleProgressBar.png" id="2_2rbyi"]
 [ext_resource type="Theme" uid="uid://c1l4dbc35ej4v" path="res://assets/UI/UITheme.tres" id="2_iuio5"]
+[ext_resource type="Texture2D" uid="uid://3vkmoir6a1cj" path="res://assets/UI/Screenshot_6.png" id="5_bxwf1"]
+[ext_resource type="Texture2D" uid="uid://slm5c2vsqt68" path="res://assets/UI/Screenshot_5.png" id="6_ep5gk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ayw2i"]
 
@@ -16,6 +18,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 29.0
+offset_right = 12.0
+offset_bottom = 29.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_1rb8l")
@@ -57,7 +63,7 @@ grow_vertical = 0
 alignment = 1
 
 [node name="CarUIPanel" type="Panel" parent="Control/BottomContainer"]
-custom_minimum_size = Vector2(300, 100)
+custom_minimum_size = Vector2(340, 170)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ayw2i")
 
@@ -68,13 +74,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -50.0
-offset_right = 300.0
-offset_bottom = 150.0
+offset_left = -148.0
+offset_top = -94.0
+offset_right = 252.945
+offset_bottom = 106.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.75, 0.75)
 value = 50.0
 fill_mode = 4
 texture_under = ExtResource("2_2rbyi")
@@ -84,16 +90,17 @@ radial_initial_angle = 180.0
 
 [node name="CarScorePanel" type="Panel" parent="Control/BottomContainer/CarUIPanel"]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -43.5
-offset_top = -43.0
-offset_right = 43.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -27.5
+offset_right = 60.0
+offset_bottom = 27.5
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 theme = ExtResource("2_iuio5")
 
 [node name="CarScore" type="Label" parent="Control/BottomContainer/CarUIPanel/CarScorePanel"]
@@ -103,16 +110,24 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -21.0
-offset_top = -16.5
-offset_right = 21.0
-offset_bottom = 16.5
+offset_left = -34.0
+offset_top = -25.0
+offset_right = 34.0
+offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.2, 0.345098, 0.47451, 1)
+theme_override_font_sizes/font_size = 50
 text = ":24"
 
+[node name="Sprite2D" type="Sprite2D" parent="Control/BottomContainer/CarUIPanel"]
+position = Vector2(44, 26)
+rotation = -0.820305
+scale = Vector2(0.340095, 0.340095)
+texture = ExtResource("5_bxwf1")
+
 [node name="BikeUIPanel" type="Panel" parent="Control/BottomContainer"]
-custom_minimum_size = Vector2(300, 100)
+custom_minimum_size = Vector2(340, 170)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ayw2i")
 
@@ -123,13 +138,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -50.0
-offset_right = 300.0
-offset_bottom = 150.0
+offset_left = -149.0
+offset_top = -94.0
+offset_right = 251.0
+offset_bottom = 106.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.75, 0.75)
 value = 50.0
 fill_mode = 4
 texture_under = ExtResource("2_2rbyi")
@@ -139,16 +154,17 @@ radial_initial_angle = 180.0
 
 [node name="BikeScorePanel" type="Panel" parent="Control/BottomContainer/BikeUIPanel"]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -43.5
-offset_top = -43.0
-offset_right = 43.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -27.5
+offset_right = 60.0
+offset_bottom = 27.5
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 theme = ExtResource("2_iuio5")
 
 [node name="BikeScore" type="Label" parent="Control/BottomContainer/BikeUIPanel/BikeScorePanel"]
@@ -164,4 +180,13 @@ offset_right = 21.0
 offset_bottom = 16.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.2, 0.345098, 0.47451, 1)
+theme_override_font_sizes/font_size = 50
 text = ":24"
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/BottomContainer/BikeUIPanel"]
+position = Vector2(307, 13.9999)
+rotation = 0.820305
+scale = Vector2(0.26804, 0.28632)
+texture = ExtResource("6_ep5gk")
+flip_h = true
