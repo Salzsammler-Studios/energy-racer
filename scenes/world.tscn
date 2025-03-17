@@ -16,6 +16,7 @@
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_4j8rs")
+debugMode = true
 
 [node name="WorldMapSprite" type="Sprite2D" parent="."]
 z_index = -1
