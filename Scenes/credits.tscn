@@ -94,14 +94,22 @@ anchor_bottom = 0.5
 offset_left = -250.0
 offset_top = -200.0
 offset_right = 250.0
-offset_bottom = 200.0
+offset_bottom = 315.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0.2, 0.345098, 0.47451, 1)
-theme_override_font_sizes/normal_font_size = 70
+theme_override_font_sizes/normal_font_size = 44
 bbcode_enabled = true
-text = "[center]Nadine Jachmann
+text = "[center]Team:
+Nadine Jachmann
 Nic Schilling
-Ruben Schäfer"
+Ruben Schäfer
+
+Based on \"Energy Race\" by:
+Jochen Koubek
+Marco Fuchs
+Yelva Larsen
+
+www.salzsammler.de"
 
 [connection signal="pressed" from="Control/Control/VBoxContainer/ButtonMain" to="." method="_on_button_main_pressed"]
