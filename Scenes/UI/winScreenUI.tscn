@@ -1,14 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1ccjxw425l3h"]
+[gd_scene load_steps=4 format=3 uid="uid://d1ccjxw425l3h"]
 
 [ext_resource type="Script" path="res://scripts/winScreenUI.gd" id="1_ont7d"]
-[ext_resource type="Texture2D" uid="uid://bqlxr620w7gup" path="res://assets/UI/Prinbles_GUI_Asset_Silent (1.0.0)/asset/png/Panel/Window/Medium.png" id="2_powwg"]
 [ext_resource type="Theme" uid="uid://1bbtrqml2pk7" path="res://Scenes/UI/ui_theme.tres" id="2_yvvli"]
-[ext_resource type="Texture2D" uid="uid://cjpk5mhclacm6" path="res://assets/UI/Prinbles_GUI_Asset_Silent (1.0.0)/asset/png/Buttons/Rect-Medium/PlayIcon/Default.png" id="3_pxg33"]
+[ext_resource type="Texture2D" uid="uid://b8xt2vio0yg6e" path="res://assets/bg_main_2.jpeg" id="5_sg03j"]
 
 [node name="WinScreen" type="CanvasLayer"]
 script = ExtResource("1_ont7d")
 
-[node name="Container" type="Control" parent="."]
+[node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,82 +16,103 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_yvvli")
 
-[node name="Control" type="Control" parent="Container"]
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(961, 540)
+scale = Vector2(1.08, 1.08)
+texture = ExtResource("5_sg03j")
+
+[node name="Control" type="Control" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -376.5
-offset_top = -225.0
-offset_right = 376.5
-offset_bottom = 225.0
+offset_left = -550.0
+offset_top = -495.0
+offset_right = 550.0
+offset_bottom = 495.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Sprite2D" type="TextureRect" parent="Container/Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_powwg")
-
-[node name="Label" type="Label" parent="Container/Control"]
+[node name="Panel" type="Panel" parent="Control/Control"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -297.0
-offset_top = 9.0
-offset_right = 298.0
-offset_bottom = 146.0
+offset_left = -500.0
+offset_right = 500.0
+offset_bottom = 974.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 66
-text = "X/Y HAT GEWONNEN!"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
 
-[node name="Label2" type="Label" parent="Container/Control"]
+[node name="WinnerLabel" type="RichTextLabel" parent="Control/Control/Panel"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -482.0
+offset_top = 77.0
+offset_right = 486.0
+offset_bottom = 385.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0.196078, 0.431373, 0.564706, 1)
+theme_override_constants/outline_size = 25
+theme_override_font_sizes/normal_font_size = 130
+bbcode_enabled = true
+text = "[center] X/Y 
+hat gewonnen!"
+fit_content = true
+autowrap_mode = 2
+
+[node name="LoserLabel" type="RichTextLabel" parent="Control/Control/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -264.0
-offset_top = -52.0
-offset_right = 265.0
-offset_bottom = 23.0
+offset_left = -485.0
+offset_top = -58.0
+offset_right = 488.0
+offset_bottom = 201.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Score: / X hat aufgegeben!"
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_colors/default_color = Color(0.2, 0.345098, 0.47451, 1)
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[center] Score: / X hat aufgegeben!"
 
-[node name="ResetButton" type="Button" parent="Container/Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Control"]
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -125.0
-offset_top = -183.0
-offset_right = 125.0
-offset_bottom = -33.0
+offset_left = -175.0
+offset_top = -250.0
+offset_right = 175.0
+offset_bottom = -50.0
 grow_horizontal = 2
 grow_vertical = 0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_type_variation = &"FlatButton"
-text = "
-"
-icon = ExtResource("3_pxg33")
-icon_alignment = 1
-expand_icon = true
 
-[connection signal="pressed" from="Container/Control/ResetButton" to="." method="_on_reset_button_pressed"]
+[node name="ButtonReset" type="Button" parent="Control/Control/VBoxContainer"]
+custom_minimum_size = Vector2(40, 80)
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../ButtonQuit")
+focus_next = NodePath("../ButtonQuit")
+theme_override_colors/font_focus_color = Color(1, 0.407843, 0.333333, 1)
+text = "Nochmal"
+
+[node name="ButtonQuit" type="Button" parent="Control/Control/VBoxContainer"]
+custom_minimum_size = Vector2(350, 80)
+layout_mode = 2
+focus_neighbor_top = NodePath("../ButtonReset")
+focus_next = NodePath("../ButtonReset")
+theme_override_colors/font_focus_color = Color(1, 0.407843, 0.333333, 1)
+text = "Ende"
+
+[connection signal="pressed" from="Control/Control/VBoxContainer/ButtonReset" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="Control/Control/VBoxContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]
