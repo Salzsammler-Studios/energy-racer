@@ -36,7 +36,7 @@ func _process(_delta):
 		#update progress bar depending on the current value
 		var sb = StyleBoxFlat.new()
 		progressBar.add_theme_stylebox_override("fill", sb)
-		sb.bg_color = Color("35719f") if currentCapacity < 0 else Color("e13a3a")
+		sb.bg_color = Color("c80827") if currentCapacity < 0 else Color("006fe0")
 		progressBar.value = abs(currentCapacity)
 	if not isFilling or isFull:
 		animation_player.play("Idle")

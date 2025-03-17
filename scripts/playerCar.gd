@@ -7,7 +7,7 @@ const MAX_FUEL: int = 100
 var currentFuelCapacity: float = 100
 @export var fuelDepletionRate : float          = 1 # fuel depletion in sec
 @export var isFilling : bool = false
-@export var fixed_reservoire_filling_rate = -1
+@export var fixed_reservoire_filling_rate : float = -1
 
 @onready var screen_size = get_viewport_rect().size 
 @onready var arduino_handler = $"../ArduinoHandler"
