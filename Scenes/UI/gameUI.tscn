@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://o8x6t3inkoeg"]
+[gd_scene load_steps=9 format=3 uid="uid://o8x6t3inkoeg"]
 
 [ext_resource type="Script" path="res://scripts/gameUI.gd" id="1_ph33r"]
 [ext_resource type="Theme" uid="uid://1bbtrqml2pk7" path="res://Scenes/UI/ui_theme.tres" id="2_1rb8l"]
@@ -6,6 +6,9 @@
 [ext_resource type="Theme" uid="uid://c1l4dbc35ej4v" path="res://assets/UI/UITheme.tres" id="2_iuio5"]
 [ext_resource type="Texture2D" uid="uid://3vkmoir6a1cj" path="res://assets/UI/Screenshot_6.png" id="5_bxwf1"]
 [ext_resource type="Texture2D" uid="uid://slm5c2vsqt68" path="res://assets/UI/Screenshot_5.png" id="6_ep5gk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lg305"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ayw2i"]
 
@@ -31,11 +34,12 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -144.0
-offset_top = 22.0
-offset_right = -25.0
-offset_bottom = 72.0
+offset_left = -162.0
+offset_top = -19.0
+offset_right = -27.0
+offset_bottom = 51.0
 grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lg305")
 
 [node name="HeatUI" type="GridContainer" parent="Control/TemperaturePanel"]
 layout_mode = 2
@@ -44,6 +48,7 @@ columns = 2
 [node name="Label" type="Label" parent="Control/TemperaturePanel/HeatUI"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 66
 text = "28°C"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -85,7 +90,7 @@ value = 50.0
 fill_mode = 4
 texture_under = ExtResource("2_2rbyi")
 texture_progress = ExtResource("2_2rbyi")
-tint_progress = Color(0.207843, 0.443137, 0.623529, 1)
+tint_progress = Color(0.784314, 0.0313726, 0.152941, 1)
 radial_initial_angle = 180.0
 
 [node name="CarScorePanel" type="Panel" parent="Control/BottomContainer/CarUIPanel"]
@@ -149,7 +154,7 @@ value = 50.0
 fill_mode = 4
 texture_under = ExtResource("2_2rbyi")
 texture_progress = ExtResource("2_2rbyi")
-tint_progress = Color(0.776471, 0, 0.160784, 1)
+tint_progress = Color(0, 0.435294, 0.878431, 1)
 radial_initial_angle = 180.0
 
 [node name="BikeScorePanel" type="Panel" parent="Control/BottomContainer/BikeUIPanel"]
