@@ -1,5 +1,5 @@
 # energy-racer
-Geil. Energy Race. Brum Brum. Ouch.
+An educational game about climate change using a real bike and arduino.
 
 
 # Architecture
